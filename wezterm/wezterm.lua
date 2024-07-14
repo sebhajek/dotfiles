@@ -69,5 +69,28 @@ config.window_frame = {
    inactive_titlebar_bg = '#333333',
 }
 
+--[ KEYBINDS ]--
+config.keys = {
+   {
+      key = 'h',
+      mods = 'CTRL|ALT',
+      action = wezterm.action.ActivateTabRelative(-1)
+   },
+   {
+      key = 'l',
+      mods = 'CTRL|ALT',
+      action = wezterm.action.ActivateTabRelative(1)
+   },
+   {
+      key = 'j',
+      mods = 'CTRL|ALT',
+      action = wezterm.action.SpawnTab 'CurrentPaneDomain'
+   },
+   {
+      key = 'k',
+      mods = 'CTRL|ALT',
+      action = wezterm.action.CloseCurrentTab { confirm = true }
+   }
+}
 
 return config
