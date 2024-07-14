@@ -41,7 +41,7 @@ vim.opt.inccommand = 'split'
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 vim.opt.tabstop = 3
 vim.opt.softtabstop = 3
 vim.opt.shiftwidth = 3
@@ -66,9 +66,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-   {
-      'tpope/vim-sleuth'
-   },
+   --{'tpope/vim-sleuth'},
    {
       'numToStr/Comment.nvim',
       opts = {}
@@ -198,7 +196,12 @@ require('lazy').setup({
                }
             },
             opts = {
-               ensure_installed = { "lua_ls", }
+               ensure_installed = {
+                  'lua_ls',
+                  'texlab',
+                  'marksman',
+                  'bashls',
+               }
             }
          },
          {
@@ -278,6 +281,15 @@ require('lazy').setup({
                      }
                   }
                }
+            },
+            texlab = {
+
+            },
+            marksman = {
+
+            },
+            bashls = {
+
             }
          }
 
@@ -285,7 +297,7 @@ require('lazy').setup({
 
          local ensure_installed = vim.tbl_keys(servers or {})
          vim.list_extend(ensure_installed, {
-            'stylua',
+            'stylua'
          })
 
          require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -407,5 +419,14 @@ require('lazy').setup({
          'nvim-lua/plenary.nvim'
       },
       opts = { signs = false }
+   },
+   {
+      "lukas-reineke/indent-blankline.nvim",
+      main = "ibl",
+      opts = {
+         debounce = 100,
+         indent = { char = '▕' },
+         whitespace = { highlight = { "Whitespace", "NonText" } },
+      }
    }
 })
