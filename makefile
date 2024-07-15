@@ -1,4 +1,4 @@
-all: setup shell nvim langs fonts wezterm
+all: setup shell nvim langs lazygit fonts wezterm
 
 setup: clean
 	cp -fu ./lua/lib/color.lua ./wezterm/
@@ -15,6 +15,8 @@ wezterm: setup shell fonts
 fonts: setup shell
 	bash ./scripts/fonts.sh
 
+lazygit: setup
+	bash ./scripts/lazygit.sh
 
 shell: bash fish
 bash:

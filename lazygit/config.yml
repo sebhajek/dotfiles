@@ -1,0 +1,5 @@
+confirmOnQuit: true
+os:
+  editPreset: 'nvim'
+
+
