@@ -3,6 +3,10 @@ local config = wezterm.config_builder()
 
 config.enable_wayland = false --gnome wayland cursor fix
 
+--[ SHELL SETTINGS]--
+local default_shell = { 'fish', '-l' }
+config.default_prog = default_shell
+
 --[ APPEARANCE ]--
 config.enable_scroll_bar = false
 
@@ -84,7 +88,10 @@ config.keys = {
    {
       key = 'j',
       mods = 'CTRL|ALT',
-      action = wezterm.action.SpawnTab 'CurrentPaneDomain'
+      action = wezterm.action.SpawnCommandInNewTab {
+         domain = 'CurrentPaneDomain',
+         args = default_shell
+      }
    },
    {
       key = 'k',
@@ -92,5 +99,7 @@ config.keys = {
       action = wezterm.action.CloseCurrentTab { confirm = true }
    }
 }
+
+
 
 return config
