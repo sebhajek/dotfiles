@@ -1,5 +1,15 @@
 local wezterm = require 'wezterm'
+local color_utils = require('colors')
 local config = wezterm.config_builder()
+
+
+local t_concat = function(t1, t2)
+   for i = 1, #t2, 1 do
+      t1[#t1 + 1] = t2[i]
+   end
+   return t1
+end
+
 
 config.enable_wayland = false --gnome wayland cursor fix
 
@@ -53,11 +63,39 @@ local bright_colors = {
    '#3ddbd9',
    '#dde1e6',
 }
+local foreground = '#f2f4f8'
+local background = '#000000'
+local indexed = { [232] = '#000000' }
+
+local grayscale_arr1 = color_utils.interpol_colors(color_utils.color_from_hex(background),
+   color_utils.color_from_hex(ansi_colors[1]), 4)
+local grayscale_arr2 = color_utils.interpol_colors(color_utils.color_from_hex(ansi_colors[1]),
+   color_utils.color_from_hex(bright_colors[1]), 4)
+local grayscale_arr3 = color_utils.interpol_colors(color_utils.color_from_hex(bright_colors[1]),
+   color_utils.color_from_hex(ansi_colors[8]), 8)
+local grayscale_arr4 = color_utils.interpol_colors(color_utils.color_from_hex(ansi_colors[8]),
+   color_utils.color_from_hex(bright_colors[8]), 4)
+local grayscale_arr5 = color_utils.interpol_colors(color_utils.color_from_hex(bright_colors[8]),
+   color_utils.color_from_hex(foreground), 3)
+local grayscale_arr6 = { color_utils.color_from_hex(foreground) }
+
+local grayscale_arr = t_concat(grayscale_arr1, grayscale_arr2)
+grayscale_arr = t_concat(grayscale_arr, grayscale_arr3)
+grayscale_arr = t_concat(grayscale_arr, grayscale_arr4)
+grayscale_arr = t_concat(grayscale_arr, grayscale_arr5)
+grayscale_arr = t_concat(grayscale_arr, grayscale_arr6)
+
+for i = 232, 255, 1 do
+   indexed[i] = color_utils.hex_from_color(grayscale_arr[i - 231])
+   print(i .. '->' .. color_utils.hex_from_color(grayscale_arr[i - 231]))
+end
+
 local colors = {
-   foreground = '#f2f4f8',
-   background = '#000000',
+   foreground = foreground,
+   background = background,
    ansi = ansi_colors,
    brights = bright_colors,
+   indexed = indexed
 }
 config.colors = colors
 

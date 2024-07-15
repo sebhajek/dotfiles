@@ -73,6 +73,21 @@ export_colors.color_from_hex = function(hex)
    return export_colors.color_from_rgb(r, g, b)
 end
 
+
+---@param color Color
+---@return string
+export_colors.hex_from_color = function(color)
+   local r_hex = string.format("%X", tostring(color.red))
+   local g_hex = string.format("%X", tostring(color.green))
+   local b_hex = string.format("%X", tostring(color.blue))
+   while #r_hex < 2 do r_hex = '0' .. r_hex end
+   while #g_hex < 2 do g_hex = '0' .. g_hex end
+   while #b_hex < 2 do b_hex = '0' .. b_hex end
+   local hex = '#' .. r_hex .. g_hex .. b_hex
+   hex = hex:lower()
+   return hex
+end
+
 ---@param color1 Color
 ---@param color2 Color
 ---@param n integer
@@ -84,21 +99,22 @@ export_colors.interpol_colors = function(color1, color2, n)
    local col_arr = {}
 
    ---@type integer
-   local red_delta = (color1.red - color2.red)
+   local red_delta = (color2.red - color1.red)
    ---@type integer
-   local green_delta = (color1.green - color2.green)
+   local green_delta = (color2.green - color1.green)
    ---@type integer
-   local blue_delta = (color1.blue - color2.blue)
+   local blue_delta = (color2.blue - color1.blue)
 
-   for i = 0, n, 1 do
-      local n_red = red_delta * step * i
-      local n_green = green_delta * step * i
-      local n_blue = blue_delta * step * i
+   for i = 1, n, 1 do
+      local n_red = color1.red + red_delta * step * i
+      local n_green = color1.green + green_delta * step * i
+      local n_blue = color1.blue + blue_delta * step * i
       col_arr[#col_arr + 1] = export_colors.color_from_rgb(n_red, n_green, n_blue)
    end
 
    return col_arr
 end
 
+local col1 = export_colors.color_from_hex("#161616")
 
 return export_colors
