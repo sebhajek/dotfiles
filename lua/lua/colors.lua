@@ -55,6 +55,24 @@ export_colors.color_from_rgb = function(r, g, b)
    }
 end
 
+---@param hex string
+---@return Color
+export_colors.color_from_hex = function(hex)
+   if (#hex % 2) ~= 0 then
+      hex = hex:sub(2)
+   end
+
+   local r_hex = hex:sub(1, 2)
+   local g_hex = hex:sub(3, 4)
+   local b_hex = hex:sub(5, 6)
+
+   local r = tonumber(r_hex, 16)
+   local g = tonumber(g_hex, 16)
+   local b = tonumber(b_hex, 16)
+
+   return export_colors.color_from_rgb(r, g, b)
+end
+
 ---@param color1 Color
 ---@param color2 Color
 ---@param n integer
@@ -82,5 +100,5 @@ export_colors.interpol_colors = function(color1, color2, n)
    return col_arr
 end
 
---print('This is red->' .. export_colors.ansi_fg_color_code(1) .. '■\n' .. export_colors.ansi_reset_code())
+
 return export_colors
