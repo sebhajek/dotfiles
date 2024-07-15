@@ -5,12 +5,14 @@ local colors = require('lua/colors')
 local show_ansi_8 = function()
    io.write('ANSI 8:\n')
    for i = 0, 7, 1 do
-      io.write(colors.ansi_bg_color_code(255) ..
-         colors.ansi_fg_color_code(i) .. '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_bg_color_code(255) ..
+         colors.ansi_term.ansi_fg_color_code(i) ..
+         '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
    for i = 0, 7, 1 do
-      io.write(colors.ansi_bg_color_code(i) .. '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_bg_color_code(i) ..
+         '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
 end
@@ -18,12 +20,14 @@ end
 local show_bright_8 = function()
    io.write('BRIGHT 8:\n')
    for i = 8, 15, 1 do
-      io.write(colors.ansi_fg_color_code(i) .. '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_fg_color_code(i) ..
+         '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
    for i = 8, 15, 1 do
-      io.write(colors.ansi_fg_color_code(232) ..
-         colors.ansi_bg_color_code(i) .. '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_fg_color_code(232) ..
+         colors.ansi_term.ansi_bg_color_code(i) ..
+         '  ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
 end
@@ -54,8 +58,8 @@ local show_666_8bit = function()
             end
 
             local color_n = gradient_indexes[y + j][x + k]
-            io.write(colors.ansi_bg_color_code(color_n) ..
-               ' ' .. utils.prepend_zeroes(color_n, 3) .. colors.ansi_reset_code())
+            io.write(colors.ansi_term.ansi_bg_color_code(color_n) ..
+               ' ' .. utils.prepend_zeroes(color_n, 3) .. colors.ansi_term.ansi_reset_code())
          end
          io.write('  ')
       end
@@ -69,11 +73,13 @@ end
 local show_grayscale_8bit = function()
    io.write('GRAYSCALE 8BIT:\n')
    for i = 232, 255, 1 do
-      io.write(colors.ansi_fg_color_code(i) .. ' ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_fg_color_code(i) ..
+         ' ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
    for i = 232, 255, 1 do
-      io.write(colors.ansi_bg_color_code(i) .. ' ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_reset_code())
+      io.write(colors.ansi_term.ansi_bg_color_code(i) ..
+         ' ' .. utils.prepend_zeroes(i, 3) .. ' ' .. colors.ansi_term.ansi_reset_code())
    end
    io.write('\n')
 end
