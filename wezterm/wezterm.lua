@@ -87,8 +87,52 @@ grayscale_arr = t_concat(grayscale_arr, grayscale_arr6)
 
 for i = 232, 255, 1 do
    indexed[i] = color_utils.hex_from_color(grayscale_arr[i - 231])
-   print(i .. '->' .. color_utils.hex_from_color(grayscale_arr[i - 231]))
 end
+
+local block_arr1 = color_utils.bi_interpol_colors(color_utils.color_from_hex(ansi_colors[1]),
+   color_utils.color_from_hex(bright_colors[5]), color_utils.color_from_hex(ansi_colors[3]),
+   color_utils.color_from_hex(ansi_colors[7]), 6, 6)
+for i = 16, 51, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr1[i - 15])
+end
+
+local block_arr2 = color_utils.bi_interpol_colors(color_utils.color_from_hex(ansi_colors[2]),
+   color_utils.color_from_hex(ansi_colors[5]), color_utils.color_from_hex(ansi_colors[3]),
+   color_utils.color_from_hex(ansi_colors[7]), 6, 6)
+for i = 52, 87, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr2[i - 51])
+end
+
+local block_arr3 = color_utils.bi_interpol_colors(color_utils.color_from_hex(ansi_colors[2]),
+   color_utils.color_from_hex(ansi_colors[6]), color_utils.color_from_hex(ansi_colors[4]),
+   color_utils.color_from_hex(ansi_colors[7]), 6, 6)
+for i = 88, 123, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr3[i - 87])
+end
+
+local block_arr4 = color_utils.bi_interpol_colors(color_utils.color_from_hex(ansi_colors[2]),
+   color_utils.color_from_hex(ansi_colors[6]), color_utils.color_from_hex(bright_colors[3]),
+   color_utils.color_from_hex(bright_colors[7]), 6, 6)
+for i = 124, 159, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr4[i - 123])
+end
+
+local block_arr5 = color_utils.bi_interpol_colors(color_utils.color_from_hex(ansi_colors[2]),
+   color_utils.color_from_hex(bright_colors[6]), color_utils.color_from_hex(bright_colors[3]),
+   color_utils.color_from_hex(ansi_colors[8]), 6, 6)
+for i = 160, 195, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr5[i - 159])
+end
+
+local block_arr6 = color_utils.bi_interpol_colors(color_utils.color_from_hex(bright_colors[2]),
+   color_utils.color_from_hex(bright_colors[6]), color_utils.color_from_hex(bright_colors[4]),
+   color_utils.color_from_hex(bright_colors[8]), 6, 6)
+for i = 196, 231, 1 do
+   indexed[i] = color_utils.hex_from_color(block_arr6[i - 195])
+end
+
+
+
 
 local colors = {
    foreground = foreground,

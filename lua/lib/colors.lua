@@ -106,15 +106,60 @@ export_colors.interpol_colors = function(color1, color2, n)
    local blue_delta = (color2.blue - color1.blue)
 
    for i = 1, n, 1 do
-      local n_red = color1.red + red_delta * step * i
-      local n_green = color1.green + green_delta * step * i
-      local n_blue = color1.blue + blue_delta * step * i
+      local n_red = color1.red + (red_delta * step * i)
+      local n_green = color1.green + (green_delta * step * i)
+      local n_blue = color1.blue + (blue_delta * step * i)
       col_arr[#col_arr + 1] = export_colors.color_from_rgb(n_red, n_green, n_blue)
    end
 
    return col_arr
 end
 
-local col1 = export_colors.color_from_hex("#161616")
+---@param color1 Color top-left
+---@param color2 Color top-right
+---@param color3 Color bottom-left
+---@param color4 Color bottom-right
+---@param x number 1/n
+---@param y number 1/n
+---@return Color
+export_colors.bilinear_colors = function(color1, color2, color3, color4, x, y)
+   ---@param a integer
+   ---@param b integer
+   ---@param c integer
+   ---@param d integer
+   ---@return number
+   local bilinear_interpol = function(a, b, c, d)
+      local top_col = a + ((b - a) * x)
+      local bot_col = c + ((d - c) * x)
+      local t_col = top_col + ((bot_col - top_col) * y)
+      return t_col
+   end
+
+   local result_r = bilinear_interpol(color1.red, color2.red, color3.red, color4.red)
+   local result_g = bilinear_interpol(color1.green, color2.green, color3.green, color4.green)
+   local result_b = bilinear_interpol(color1.blue, color2.blue, color3.blue, color4.blue)
+   return export_colors.color_from_rgb(result_r, result_g, result_b)
+end
+
+---@param color1 Color
+---@param color2 Color
+---@param color3 Color
+---@param color4 Color
+---@param width integer
+---@param height integer
+---@return Color[]
+export_colors.bi_interpol_colors = function(color1, color2, color3, color4, width, height)
+   local x_step = 1 / (width + 1)
+   local y_step = 1 / (height + 1)
+   local col_arr = {}
+
+   for y = 1, height, 1 do
+      for x = 1, width, 1 do
+         col_arr[#col_arr + 1] = export_colors.bilinear_colors(color1, color2, color3, color4, x * x_step, y * y_step)
+      end
+   end
+
+   return col_arr
+end
 
 return export_colors
