@@ -1,80 +1,85 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-local colors = require('colors')
-config.colors = colors
+local defaults = require('defaults')
+
+
+local keybinds = require('keybinds')
+config.keys = keybinds
 
 config.enable_wayland = false --gnome wayland cursor fix
 
+
 --[ SHELL SETTINGS]--
-local default_shell = { 'fish', '-l' }
-config.default_prog = default_shell
+config.default_prog = defaults.default_shell
+
 
 --[ APPEARANCE ]--
+
 config.enable_scroll_bar = false
 
---[ FONTS ]--
-local default_font = {
-   family = 'IBM Plex Mono',
-   weight = 'Regular',
-   italic = false
-}
-local nerd_font = {
-   family = 'BlexMono Nerd Font',
-   weight = 'Regular',
-   italic = false
-}
-local bitmap_font = {
-   family = 'Cozette',
-   weight = 'Medium',
-   italic = false
-}
 
-config.font = wezterm.font_with_fallback {
-   default_font,
-   nerd_font,
-}
+local colors = require('colors')
+config.colors = colors
+
+
+local fonts = require('fonts')
+config.font = fonts.term_font
+config.font_size = fonts.term_font_size
 
 
 --[ TAB & WINDOW APPEARANCE ]--
 config.window_frame = {
-   font = wezterm.font_with_fallback {
-      bitmap_font,
-      default_font,
-      nerd_font,
-   },
-   font_size = 8,
-   active_titlebar_bg = '#333333',
-   inactive_titlebar_bg = '#333333',
+   font = fonts.gui_font,
+   font_size = fonts.guit_font_size,
+   active_titlebar_bg = colors.background,
+   inactive_titlebar_bg = colors.background,
+   active_titlebar_fg = colors.foreground,
+   inactive_titlebar_fg = colors.ansi[8],
+
+   inactive_titlebar_border_bottom = colors.background,
+   active_titlebar_border_bottom = colors.background,
+   button_fg = colors.ansi[3],
+   button_bg = colors.background,
+   button_hover_fg = colors.ansi[8],
+   button_hover_bg = colors.ansi[1],
 }
 
---[ KEYBINDS ]--
-config.keys = {
-   {
-      key = 'h',
-      mods = 'CTRL|ALT',
-      action = wezterm.action.ActivateTabRelative(-1)
-   },
-   {
-      key = 'l',
-      mods = 'CTRL|ALT',
-      action = wezterm.action.ActivateTabRelative(1)
-   },
-   {
-      key = 'j',
-      mods = 'CTRL|ALT',
-      action = wezterm.action.SpawnCommandInNewTab {
-         domain = 'CurrentPaneDomain',
-         args = default_shell
-      }
-   },
-   {
-      key = 'k',
-      mods = 'CTRL|ALT',
-      action = wezterm.action.CloseCurrentTab { confirm = true }
-   }
-}
+config.colors.tab_bar = {
+   background = colors.background,
 
+   active_tab = {
+      bg_color = colors.background,
+      fg_color = colors.foreground,
+      intensity = 'Normal',
+      underline = 'None'
+   },
+
+   inactive_tab = {
+      bg_color = colors.background,
+      fg_color = colors.ansi[3],
+      intensity = 'Normal',
+      underline = 'None'
+   },
+   inactive_tab_hover = {
+      bg_color = colors.background,
+      fg_color = colors.ansi[8],
+      intensity = 'Normal',
+      underline = 'None'
+   },
+
+   new_tab = {
+      bg_color = colors.background,
+      fg_color = colors.ansi[3],
+   },
+   new_tab_hover = {
+      bg_color = colors.background,
+      fg_color = colors.ansi[8],
+      italic = true,
+   },
+
+   inactive_tab_edge = colors.ansi[1]
+}
 
 
 return config
