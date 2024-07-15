@@ -1,5 +1,5 @@
 local utils = require('lib/utils')
-local colors = require('lib/colors')
+local colors = require('lib/color')
 
 
 local show_ansi_8 = function()
