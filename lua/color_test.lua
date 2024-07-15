@@ -1,5 +1,5 @@
-local utils = require('lua/utils')
-local colors = require('lua/colors')
+local utils = require('lib/utils')
+local colors = require('lib/colors')
 
 
 local show_ansi_8 = function()
