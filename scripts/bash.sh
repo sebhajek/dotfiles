@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+
+sudo zypper in bash;
 rm -f ~/.bashrc;
 mkdir -p ~/.shell/;
 cp -fu ./shell/.bashrc ~/;

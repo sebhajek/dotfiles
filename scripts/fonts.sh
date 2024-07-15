@@ -12,6 +12,7 @@ wget https://github.com/slavfox/Cozette/releases/download/v.1.23.2/cozette_hidpi
 wget https://github.com/slavfox/Cozette/releases/download/v.1.23.2/CozetteVector.otf -O out/bitmap/cozette-vector.otf;
 
 mkdir -p ~/.dotfiles/fonts/out;
+rm -rf ~/.dotfiles/fonts/out;
 cd ~/.dotfiles/fonts/out/;
 7z x ~/.dotfiles/fonts/ibm-plex.zip;
 mv ./OpenType ./ibm-plex;
