@@ -14,10 +14,10 @@ wget https://github.com/slavfox/Cozette/releases/download/v.1.23.2/CozetteVector
 mkdir -p ~/.dotfiles/fonts/out;
 rm -rf ~/.dotfiles/fonts/out;
 cd ~/.dotfiles/fonts/out/;
-7z x ~/.dotfiles/fonts/ibm-plex.zip;
+7z x ~/.dotfiles/fonts/ibm-plex.zip -y -aoa;
 mv ./OpenType ./ibm-plex;
 mkdir -p ~/.dotfiles/fonts/out/ibm-plex/NerdBlex;
-7z x ~/.dotfiles/fonts/nerd-blex.zip -o~/.dotfiles/fonts/out/ibm-plex/Nerd-Blex;
+7z x ~/.dotfiles/fonts/nerd-blex.zip -o~/.dotfiles/fonts/out/ibm-plex/Nerd-Blex -y -aoa;
 
 cd ~/.dotfiles;
 cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/;
