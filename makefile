@@ -1,6 +1,6 @@
-all: clean setup shell nvim langs fonts wezterm
+all: setup shell nvim langs fonts wezterm
 
-setup:
+setup: clean
 	cp -fu ./lua/lib/colors.lua ./wezterm/
 
 
@@ -23,7 +23,7 @@ fish:
 
 langs: odin
 odin: shell
-	
+	bash ./scripts/langs/odin.sh
 
 clean:
 	rm -f ./wezterm/colors.lua
