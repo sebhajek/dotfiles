@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo zypper in lazygit;
+sudo zypper -n in lazygit;
 mkdir -p ~/.config/lazygit;
 mkdir -p ~/.config/jesseduffield/lazygit;
 rm -rf ~/.config/lazygit/*;

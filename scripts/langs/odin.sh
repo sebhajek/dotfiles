@@ -6,7 +6,7 @@ rm -rf ~/.odin;
 mkdir -p ~/.odin/;
 
 git clone https://github.com/odin-lang/Odin ~/.odin;
-sudo zypper in clang llvm llvm-devel;
+sudo zypper -n in clang llvm llvm-devel;
 cd ~/.odin/ && make;
 
 source ~/.bashrc;

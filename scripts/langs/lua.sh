@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo zypper in lua51;
-sudo zypper in lua51-luarocks;
-sudo zypper in luajit;
+sudo zypper -n in lua51;
+sudo zypper -n in lua51-luarocks;
+sudo zypper -n in luajit;

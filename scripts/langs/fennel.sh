@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-sudo zypper in lua-fennel;
-sudo zypper in libreadline8 readline-devel;
-sudo zypper in libreadline6 readline6-devel;
-sudo zypper in lua51-readline;
+sudo zypper -n in lua-fennel;
+sudo zypper -n in libreadline8 readline-devel;
+sudo zypper -n in libreadline6 readline6-devel;
+sudo zypper -n in lua51-readline;
 
 mkdir -p ~/.fennel/;
 touch ~/.fennel/.fennel-history;
