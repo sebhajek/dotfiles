@@ -203,7 +203,8 @@ require('lazy').setup({
                   'bashls',
                   'fennel_ls',
                   'pyright',
-                  'tsserver'  
+                  'tsserver',
+                  'ocamllsp' 
                }
             }
          },
@@ -302,6 +303,9 @@ require('lazy').setup({
             },
             tsserver = {
 
+            },
+            ocamllsp = {
+               
             }
          }
 

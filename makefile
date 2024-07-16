@@ -32,7 +32,7 @@ mermaid: setup shell js
 	bash ./scripts/mermaid.sh
 
 
-langs: shell odin lua fennel python js
+langs: shell odin lua fennel python js ocaml
 odin: setup
 	bash ./scripts/langs/odin.sh
 lua: setup
@@ -43,6 +43,8 @@ python:
 	bash ./scripts/langs/python.sh
 js:
 	bash ./scripts/langs/js.sh
+ocaml:
+	bash ./scripts/langs/ocaml.sh
 
 
 desktop: fonts wezterm
