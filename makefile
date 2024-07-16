@@ -24,9 +24,10 @@ mc:
 shell: setup bash utils fish
 bash:
 	bash ./scripts/bash.sh
+fish:
+	bash ./scripts/fish.sh
 utils:
 	bash ./scripts/utils.sh	
-fish:
 
 tools: mermaid
 mermaid: shell js
