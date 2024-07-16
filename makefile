@@ -3,6 +3,7 @@ all: setup cli langs desktop docs
 
 setup: clean
 	cp -fu ./lua/lib/color.lua ./wezterm/
+	sudo zypper ref
 
 clean:
 	rm -f ./wezterm/color.lua
@@ -12,7 +13,7 @@ clean:
 cli: shell devenv tools
 
 devenv: nvim lazygit mc
-nvim: shell
+nvim: shell lua
 	bash ./scripts/nvim.sh
 lazygit:
 	bash ./scripts/lazygit.sh
@@ -20,7 +21,7 @@ mc:
 	bash ./scripts/mc.sh
 	
 
-shell: bash utils fish
+shell: setup bash utils fish
 bash:
 	bash ./scripts/bash.sh
 utils:
@@ -28,12 +29,12 @@ utils:
 fish:
 
 tools: mermaid
-mermaid: setup shell js
+mermaid: shell js
 	bash ./scripts/mermaid.sh
 
 
-langs: shell odin lua fennel python js ocaml
-odin: setup
+langs: shell lua c odin fennel python js ocaml
+odin: setup c
 	bash ./scripts/langs/odin.sh
 lua: setup
 	bash ./scripts/langs/lua.sh
@@ -45,7 +46,7 @@ js:
 	bash ./scripts/langs/js.sh
 ocaml:
 	bash ./scripts/langs/ocaml.sh
-
+c: 
 
 desktop: fonts wezterm
 

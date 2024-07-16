@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
-sudo zypper -n in opam;
 
-opam init -y;
 cp -fu ./shell/alias/.bash_profile_ocaml ~/.shell/;
+sudo zypper -n in opam ocaml;
+sudo zypper -n in ocaml-dune ocaml-ocamlbuild;
 
-opam install dune;
-opam install odoc ocamlformat utop;
+opam init -y --reinit -ni;
+source ~/.bashrc;
+
+eval `opam env`;
+opam switch create 4.10.0;
+eval $(opam env);
+opam install -y  --restore dune;
+eval $(opam env);
+opam install -y --restore ocamlformat utop;
+
+eval $(opam env);
+source ~/.bashrc;
