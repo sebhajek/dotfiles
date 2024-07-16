@@ -8,6 +8,6 @@ sudo zypper in lua51-readline;
 mkdir -p ~/.fennel/;
 touch ~/.fennel/.fennel-history;
 rm -f ~/.inputrc;
-cp -fu ./fennel/.inputrc;
+cp -fu ./fennel/.inputrc ~/;
 rm -f ~/.fennelrc;
-cp -fu ./fennel/.fennelrc;
+cp -fu ./fennel/.fennelrc ~/;
