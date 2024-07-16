@@ -1,1 +1,1 @@
-test -r /home/sebhajek/.opam/opam-init/init.sh && . /home/sebhajek/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true;
+test -r /home/sebhajek/.opam/opam-init/init.fish && . /home/sebhajek/.opam/opam-init/init.fish > /dev/null 2> /dev/null || true;
