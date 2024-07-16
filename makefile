@@ -30,7 +30,7 @@ mermaid: setup shell langs
 	bash ./scripts/mermaid.sh
 
 
-langs: shell odin lua fennel
+langs: shell odin lua fennel python
 odin: setup
 	bash ./scripts/langs/odin.sh
 lua: setup

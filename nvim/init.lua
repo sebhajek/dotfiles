@@ -201,7 +201,8 @@ require('lazy').setup({
                   'texlab',
                   'marksman',
                   'bashls',
-                  'fennel_ls'
+                  'fennel_ls',
+                  'pyright'
                }
             }
          },
@@ -293,6 +294,9 @@ require('lazy').setup({
 
             },
             fennel_ls = {
+               
+            },
+            pyright={
                
             }
          }
