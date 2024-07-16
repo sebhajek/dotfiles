@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cp -fu ./shell/alias/.bash_profile_odin ~/.shell/;
+cp -fu ./shell/alias/config_odin.fish ~/config/fish/conf.d/;
 
 rm -rf ~/.odin;
 mkdir -p ~/.odin/;

@@ -2,6 +2,9 @@
 
 
 cp -fu ./shell/alias/.bash_profile_ocaml ~/.shell/;
+cp -fu ./shell/alias/config_ocaml.fish ~/config/fish/conf.d/;
+
+
 sudo zypper -n in opam ocaml;
 sudo zypper -n in ocaml-dune ocaml-ocamlbuild;
 
