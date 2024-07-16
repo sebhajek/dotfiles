@@ -201,6 +201,7 @@ require('lazy').setup({
                   'texlab',
                   'marksman',
                   'bashls',
+                  'fennel_ls'
                }
             }
          },
@@ -290,6 +291,9 @@ require('lazy').setup({
             },
             bashls = {
 
+            },
+            fennel_ls = {
+               
             }
          }
 

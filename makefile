@@ -23,9 +23,13 @@ bash:
 	bash ./scripts/bash.sh
 fish:
 
-langs: odin
-odin: shell
+langs: shell odin lua fennel
+odin: 
 	bash ./scripts/langs/odin.sh
+lua:
+	bash ./scripts/langs/lua.sh
+fennel: lua
+	bash ./scripts/langs/fennel.sh
 
 
 mermaid: shell setup
@@ -35,6 +39,7 @@ mermaid: shell setup
 docs: setup
 	mkdir -p ./docs/out
 	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/map.mmd --output ./docs/out/map.svg
+	
 
 clean:
 	rm -f ./wezterm/color.lua

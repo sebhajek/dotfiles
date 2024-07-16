@@ -1,0 +1,3 @@
+(case package.loaded.readline
+    rl  (rl.set_options {   :histfile  "~/.fennel/.fennel-history.fnl"  ; default:"" (don't save)
+                            :keeplines 4096}))                      ; default:1000
