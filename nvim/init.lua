@@ -202,7 +202,8 @@ require('lazy').setup({
                   'marksman',
                   'bashls',
                   'fennel_ls',
-                  'pyright'
+                  'pyright',
+                  'tsserver'  
                }
             }
          },
@@ -296,7 +297,10 @@ require('lazy').setup({
             fennel_ls = {
                
             },
-            pyright={
+            pyright = {
+
+            },
+            tsserver = {
 
             }
          }

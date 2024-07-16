@@ -26,11 +26,11 @@ bash:
 fish:
 
 tools: mermaid
-mermaid: setup shell langs
+mermaid: setup shell js
 	bash ./scripts/mermaid.sh
 
 
-langs: shell odin lua fennel python
+langs: shell odin lua fennel python js
 odin: setup
 	bash ./scripts/langs/odin.sh
 lua: setup
@@ -39,6 +39,9 @@ fennel: lua setup
 	bash ./scripts/langs/fennel.sh
 python:
 	bash ./scripts/langs/python.sh
+js:
+	bash ./scripts/langs/js.sh
+
 
 desktop: fonts wezterm
 
