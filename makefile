@@ -20,9 +20,11 @@ mc:
 	bash ./scripts/mc.sh
 	
 
-shell: bash fish
+shell: bash utils fish
 bash:
 	bash ./scripts/bash.sh
+utils:
+	bash ./scripts/utils.sh	
 fish:
 
 tools: mermaid
