@@ -1,4 +1,4 @@
-all: setup cli langs desktop
+all: setup cli langs desktop docs
 
 
 setup: clean
@@ -37,7 +37,8 @@ lua: setup
 	bash ./scripts/langs/lua.sh
 fennel: lua setup
 	bash ./scripts/langs/fennel.sh
-
+python:
+	bash ./scripts/langs/python.sh
 
 desktop: fonts wezterm
 
