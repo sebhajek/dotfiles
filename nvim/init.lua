@@ -297,7 +297,7 @@ require('lazy').setup({
                
             },
             pyright={
-               
+
             }
          }
 
@@ -438,3 +438,5 @@ require('lazy').setup({
       }
    }
 })
+
+vim.cmd(':LspUninstall snyk_ls')
