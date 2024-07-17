@@ -1,4 +1,4 @@
-all: setup cli langs desktop docs
+all: setup cli langs desktop apps docs
 
 
 setup: clean
@@ -60,6 +60,10 @@ wezterm: setup shell fonts
 
 fonts: setup shell
 	bash ./scripts/fonts.sh
+
+apps: gdbgui
+gdbgui: c python
+	bash ./scripts/apps/gdbgui.sh
 
 
 docs: setup
