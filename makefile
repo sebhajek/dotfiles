@@ -16,7 +16,7 @@ devenv: nvim lazygit mc
 nvim: shell lua
 	bash ./scripts/nvim.sh
 lazygit:
-	bash ./scripts/lazygit.sh
+	bash ./scripts/devenv/lazygit.sh
 mc:
 	bash ./scripts/mc.sh
 	
@@ -31,7 +31,7 @@ utils:
 
 tools: mermaid
 mermaid: shell js
-	bash ./scripts/mermaid.sh
+	bash ./scripts/tools/mermaid.sh
 
 
 langs: shell c lua odin fennel python js ocaml pascal java
@@ -63,7 +63,7 @@ wezterm: setup shell fonts
 	bash ./scripts/desktop/wezterm.sh
 
 fonts: setup shell
-	bash ./scripts/fonts.sh
+	bash ./scripts/desktop/fonts.sh
 
 apps: gdbgui
 gdbgui: c python
