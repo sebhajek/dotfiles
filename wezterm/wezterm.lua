@@ -17,7 +17,7 @@ config.default_prog = defaults.default_shell
 --[ APPEARANCE ]--
 
 config.enable_scroll_bar = false
-
+config.allow_square_glyphs_to_overflow_width = "Never"
 
 local colors = require('colors')
 config.colors = colors
@@ -26,7 +26,9 @@ config.colors = colors
 local fonts = require('fonts')
 config.font = fonts.term_font
 config.font_size = fonts.term_font_size
-
+config.freetype_load_target = fonts.antialias.load
+config.freetype_render_target = fonts.antialias.render
+config.foreground_text_hsb = fonts.hsb;
 
 --[ TAB & WINDOW APPEARANCE ]--
 config.window_frame = {
