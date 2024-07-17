@@ -56,7 +56,7 @@ pascal: c
 desktop: fonts wezterm
 
 wezterm: setup shell fonts
-	bash ./scripts/wezterm.sh
+	bash ./scripts/desktop/wezterm.sh
 
 fonts: setup shell
 	bash ./scripts/fonts.sh
