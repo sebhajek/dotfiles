@@ -20,8 +20,6 @@ wget http://ftp.gnu.org/gnu/freefont/freefont-ttf.zip -O collection-gnu.zip;
 
 # MONOSPACE
 
-## IBM Plex Mono
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/IBMPlexMono.zip -O mono-nerd-blex.zip;
 ## Kode Mono
 wget https://github.com/isaozler/kode-mono/releases/download/1.206/kode-mono-fonts.zip -O mono-kode.zip;
 ## Fira Code
@@ -37,6 +35,7 @@ wget https://rubjo.github.io/victor-mono/VictorMonoAll.zip -O mono-victor.zip
 
 ## IBM Plex
 wget https://github.com/IBM/plex/releases/download/v6.4.0/OpenType.zip -O family-ibm-plex.zip;
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/IBMPlexMono.zip -O mono-nerd-blex.zip;
 ## Fira Family
 wget https://github.com/mozilla/Fira/archive/refs/tags/4.202.zip -O family-fira.zip;
 ## Apple SF Family
@@ -71,7 +70,9 @@ mv download/bitmap-gnu-unifont.otf out/bitmap/bitmap-gnu-unifont.otf;
 ## DISPLAY AND PRINT
 cd ~/.dotfiles/fonts/download/;
 7z x family-ibm-plex.zip -aoa -y;
+7z x mono-nerd-blex.zip -aoa -y -omono-nerd-blex;
 mv OpenType/ family-ibm-plex/;
+mv mono-nerd-blex/ family-ibm-plex/Nerd-Mono;
 cd ~/.dotfiles/fonts/;
 mv download/family-ibm-plex/ out/family-ibm-plex/;
 
@@ -117,9 +118,33 @@ cd ~/.dotfiles/fonts/;
 mv download/collection-codeface/ out/collection-codeface/;
 
 
-
 ## MONOSPACE
+cd ~/.dotfiles/fonts/download/;
+7z x mono-fira-code.zip -aoa -y -omono-fira-code-temp/;
+mkdir -p ~/.dotfiles/fonts/download/mono-fira-code;
+cp -ru mono-fira-code-temp/ttf/* mono-fira-code/;
+cp -ru mono-fira-code-temp/variable_ttf/* mono-fira-code/;
+cd ~/.dotfiles/fonts/;
+mv download/mono-fira-code/ out/mono-fira-code/;
+rm -rf ./download/mono-fira-code-temp;
 
+cd ~/.dotfiles/fonts/download/;
+7z x mono-jetbrains.zip -aoa -y -omono-jetbrains-temp/;
+mkdir -p ~/.dotfiles/fonts/download/mono-jetbrains;
+cp -ru mono-jetbrains-temp/fonts/ttf/* mono-jetbrains/;
+cp -ru mono-jetbrains-temp/fonts/variable/* mono-jetbrains/;
+cd ~/.dotfiles/fonts/;
+mv download/mono-jetbrains/ out/mono-jetbrains/;
+rm -rf ./download/mono-jetbrains-temp/;
+
+cd ~/.dotfiles/fonts/download/;
+7z x mono-julia.zip -aoa -y -omono-julia-temp/;
+
+cd ~/.dotfiles/fonts/download/;
+7z x mono-kode.zip -aoa -y;
+
+cd ~/.dotfiles/fonts/download/;
+7z x mono-victor.zip -aoa -y -omono-victor-temp/;
 
 # FINISH AND REFRESH CACHE
 cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/;
