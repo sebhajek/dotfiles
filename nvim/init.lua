@@ -293,6 +293,8 @@ require('lazy').setup({
             autotools_ls = {
             },
             bashls = {
+               cmd = { "bash-language-server", "start" },
+               filetypes = { "sh", "bash" }
             },
             clangd = {
             },
@@ -348,7 +350,8 @@ require('lazy').setup({
 
          local ensure_installed = vim.tbl_keys(servers or {})
          vim.list_extend(ensure_installed, {
-            'stylua'
+            'stylua',
+            'shfmt'
          })
 
          require('mason-tool-installer').setup { ensure_installed = ensure_installed }
