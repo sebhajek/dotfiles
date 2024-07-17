@@ -197,14 +197,28 @@ require('lazy').setup({
             },
             opts = {
                ensure_installed = {
-                  'lua_ls',
-                  'texlab',
-                  'marksman',
+                  'asm_lsp',
+                  'autotools_ls'
                   'bashls',
+                  'clangd',
+                  'cssls',
                   'fennel_ls',
+                  'gopls',
+                  'glsl_analyzer',
+                  'html',
+                  'htmx',
+                  'jdtls',
+                  'jsonls',
+                  'lua_ls',
+                  'marksman',
+                  'ocamllsp',
+                  'ols',
                   'pyright',
+                  'taplo',
+                  'texlab',
                   'tsserver',
-                  'ocamllsp' 
+                  'wgsl_analyzer',
+                  'yamlls',
                }
             }
          },
@@ -274,6 +288,30 @@ require('lazy').setup({
          capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
          local servers = {
+            asm_lsp = {
+            },
+            autotools_ls = {
+            },
+            bashls = {
+            },
+            clangd = {
+            },
+            cssls = {
+            },
+            fennel_ls = {
+            },
+            gopls = {
+            },
+            glsl_analyzer = {
+            },
+            html = {
+            },
+            htmx = {
+            },
+            jdtls = {
+            },
+            jsonls = {
+            },
             lua_ls = {
                settings = {
                   Lua = {
@@ -286,27 +324,24 @@ require('lazy').setup({
                   }
                }
             },
-            texlab = {
-
-            },
             marksman = {
-
-            },
-            bashls = {
-
-            },
-            fennel_ls = {
-               
-            },
-            pyright = {
-
-            },
-            tsserver = {
-
             },
             ocamllsp = {
-               
-            }
+            },
+            ols = {
+            },
+            pyright = {
+            },
+            taplo = {
+            },
+            texlab = {
+            },
+            tsserver = {
+            },
+            wgsl_analyzer = {
+            },
+            yamlls = {
+            },
          }
 
          require('mason').setup()
