@@ -48,7 +48,7 @@ js:
 ocaml:
 	bash ./scripts/langs/ocaml.sh
 c: 
-	
+	bash ./scripts/langs/c.sh
 pascal: c
 	bash ./scripts/langs/pascal.sh
 
