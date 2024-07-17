@@ -29,10 +29,11 @@ fish:
 utils:
 	bash ./scripts/utils.sh	
 
-tools: mermaid
+tools: mermaid latex
 mermaid: shell js
 	bash ./scripts/tools/mermaid.sh
-
+latex:
+	bash ./scripts/tools/latex.sh
 
 langs: shell c lua odin fennel python js ocaml pascal java
 odin: setup c
