@@ -68,7 +68,7 @@ desktop: fonts wezterm
 wezterm: setup shell fonts
 	bash ./scripts/desktop/wezterm.sh
 
-fonts: setup shell
+fonts: setup shell python
 	bash ./scripts/desktop/fonts.sh
 
 apps: gdbgui
