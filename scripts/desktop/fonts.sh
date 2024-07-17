@@ -10,6 +10,7 @@ cd ~/.dotfiles/fonts/download;
 
 # COLLECTIONS
 ## Codeface collection
+wget https://dtinth.github.io/comic-mono-font/ComicMono.ttf -O mono-comic.ttf
 wget https://github.com/chrissimpkins/codeface/releases/download/font-collection/codeface-fonts.zip -O collection-codeface.zip;
 ## URW-35 collection
 wget https://github.com/ArtifexSoftware/urw-base35-fonts/archive/refs/tags/20200910.zip -O collection-urw35.zip;
@@ -31,9 +32,6 @@ wget https://github.com/cormullion/juliamono/releases/download/v0.056/JuliaMono-
 wget https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip -O mono-jetbrains.zip;
 ## Victor Mono
 wget https://rubjo.github.io/victor-mono/VictorMonoAll.zip -O mono-victor.zip
-## Comic Mono
-wget https://dtinth.github.io/comic-mono-font/ComicMono.ttf -O mono-comic.ttf
-
 
 ## DISPLAY AND PRINT
 
@@ -41,7 +39,9 @@ wget https://dtinth.github.io/comic-mono-font/ComicMono.ttf -O mono-comic.ttf
 wget https://github.com/IBM/plex/releases/download/v6.4.0/OpenType.zip -O family-ibm-plex.zip;
 ## Fira Family
 wget https://github.com/mozilla/Fira/archive/refs/tags/4.202.zip -O family-fira.zip;
-## maybe add noto, alegreya, volkhorn, roboto, opensans, nunito, Red hat display, Arvo, Exo, Chivo, Cardo, Old Standart, Nova/Nova Cut, acme, Gochi, Telex, Andada, Cambo, Piazolla
+## Apple SF Family
+wget https://github.com/bradleyhodges/SFWindows/archive/refs/heads/main.zip -O family-apple-sf.zip;
+## maybe add noto, alegreya, volkhorn, roboto, opensans, nunito, Red hat display, Arvo, Exo, Chivo, Cardo, Old Standard, Nova/Nova Cut, acme, Gochi, Telex, Andada, Cambo, Piazolla
 
 
 # BITMAP
@@ -67,6 +67,7 @@ mv download/bitmap-cozette-hidpi.otp out/bitmap/bitmap-cozette-hidpi.otp;
 mv download/bitmap-cozette-vector.otf out/bitmap/bitmap-cozette-vector.otf;
 mv download/bitmap-gnu-unifont.otf out/bitmap/bitmap-gnu-unifont.otf;
 
+
 ## DISPLAY AND PRINT
 cd ~/.dotfiles/fonts/download/;
 7z x family-ibm-plex.zip -aoa -y;
@@ -81,7 +82,41 @@ rm -rf ./Fira-4.202;
 cd ~/.dotfiles/fonts/;
 mv download/family-fira/ out/family-fira/;
 
+cd ~/.dotfiles/fonts/download/;
+7z x family-apple-sf.zip -aoa -y;
+mkdir -p ./family-apple-sf;
+cp -ru ./SFWindows-main/'SF Compact'/* ./family-apple-sf/;
+cp -ru ./SFWindows-main/'SF Mono'/* ./family-apple-sf/;
+cp -ru ./SFWindows-main/'SF Pro'/* ./family-apple-sf/;
+cp -ru ./SFWindows-main/'New York'/* ./family-apple-sf/;
+rm -rf ./SFWindows-main;
+cd ~/.dotfiles/fonts/;
+mv download/family-apple-sf/ out/family-apple-sf/;
+
+
 ## COLLECTIONS
+cd ~/.dotfiles/fonts/download/;
+7z x collection-urw35.zip -aoa -y;
+mv urw-base35-fonts-20200910/fonts/ collection-urw35/;
+rm -rf ./urw-base35-fonts-20200910;
+cd ~/.dotfiles/fonts/;
+mv download/collection-urw35/ out/collection-urw35/;
+
+cd ~/.dotfiles/fonts/download/;
+7z x collection-gnu.zip -aoa -y -ocollection-gnu-temp/;
+mv collection-gnu-temp/sfd/ collection-gnu/;
+rm -rf ./collection-gnu-temp;
+cd ~/.dotfiles/fonts/;
+mv download/collection-gnu/ out/collection-gnu/;
+
+cd ~/.dotfiles/fonts/download/;
+7z x collection-codeface.zip -aoa -y;
+mv fonts/ collection-codeface/;
+mv mono-comic.ttf collection-codeface/comic-mono.ttf;
+cd ~/.dotfiles/fonts/;
+mv download/collection-codeface/ out/collection-codeface/;
+
+
 
 ## MONOSPACE
 
