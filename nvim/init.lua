@@ -198,7 +198,7 @@ require('lazy').setup({
             opts = {
                ensure_installed = {
                   'asm_lsp',
-                  'autotools_ls'
+                  'autotools_ls',
                   'bashls',
                   'clangd',
                   'cssls',
