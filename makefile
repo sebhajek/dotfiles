@@ -71,9 +71,12 @@ wezterm: setup shell fonts
 fonts: setup shell python
 	bash ./scripts/desktop/fonts.sh
 
-apps: gdbgui
-gdbgui: c python
+apps: browser gdbgui multimedia
+gdbgui: c python browser
 	bash ./scripts/apps/gdbgui.sh
+multimedia: desktop fonts
+	bash ./scripts/apps/multimedia.sh
+browser:
 
 
 docs: setup
