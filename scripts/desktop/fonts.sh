@@ -139,12 +139,28 @@ rm -rf ./download/mono-jetbrains-temp/;
 
 cd ~/.dotfiles/fonts/download/;
 7z x mono-julia.zip -aoa -y -omono-julia-temp/;
+rm -f mono-julia-temp/LICENSE;
+cd ~/.dotfiles/fonts/;
+mv download/mono-julia-temp/ out/mono-julia/;
 
 cd ~/.dotfiles/fonts/download/;
 7z x mono-kode.zip -aoa -y;
+mkdir -p ~/.dotfiles/fonts/download/mono-kode;
+cp -ru kode-mono-fonts/fonts/ttf/* mono-kode/;
+cp -ru kode-mono-fonts/fonts/variable/* mono-kode/;
+cd ~/.dotfiles/fonts/;
+mv download/mono-kode/ out/mono-kode/;
+rm -rf ./download/kode-mono-fonts/;
 
 cd ~/.dotfiles/fonts/download/;
 7z x mono-victor.zip -aoa -y -omono-victor-temp/;
+mkdir -p ~/.dotfiles/fonts/download/mono-victor;
+cp -ru mono-victor-temp/OTF/* mono-victor/;
+cp -ru mono-victor-temp/TTF/* mono-victor/;
+cd ~/.dotfiles/fonts/;
+mv download/mono-victor/ out/mono-victor/;
+rm -rf ./download/mono-victor-temp/;
+
 
 # FINISH AND REFRESH CACHE
 cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/;
