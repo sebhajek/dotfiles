@@ -53,6 +53,8 @@ pascal: c
 	bash ./scripts/langs/pascal.sh
 java: utils
 	bash ./scripts/langs/java.sh
+scala: java utils
+	bash ./scripts/langs/scala.sh
 	
 
 desktop: fonts wezterm
