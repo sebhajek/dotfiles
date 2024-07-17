@@ -10,16 +10,20 @@ clean:
 	rm -rf ./docs/out/
 
 
-cli: shell devenv tools
+cli: shell devenv tools buildtools
 
 devenv: nvim lazygit mc
-nvim: shell lua
+nvim: shell lua buildtools
 	bash ./scripts/nvim.sh
 lazygit:
 	bash ./scripts/devenv/lazygit.sh
 mc:
 	bash ./scripts/mc.sh
-	
+
+buildtools: libs
+	bash ./scripts/buildtools.sh
+libs:
+	bash ./scripts/libs.sh
 
 shell: setup bash utils fish
 bash:
