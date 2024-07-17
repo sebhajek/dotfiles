@@ -30,6 +30,8 @@ wget https://github.com/cormullion/juliamono/releases/download/v0.056/JuliaMono-
 wget https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip -O mono-jetbrains.zip;
 ## Victor Mono
 wget https://rubjo.github.io/victor-mono/VictorMonoAll.zip -O mono-victor.zip
+## 0xProto Mono
+#wget https://github.com/0xType/0xProto/releases/download/2.100/0xProto_2_100.zip -O mono-0xproto.zip;
 
 ## DISPLAY AND PRINT
 
@@ -53,8 +55,9 @@ wget https://github.com/slavfox/Cozette/releases/download/v.1.23.2/cozette_hidpi
 wget https://github.com/slavfox/Cozette/releases/download/v.1.23.2/CozetteVector.otf -O bitmap-cozette-vector.otf;
 ## GNU Unifont
 wget https://unifoundry.com/pub/unifont/unifont-15.1.05/font-builds/unifont-15.1.05.otf -O bitmap-gnu-unifont.otf;
+## Terminus
+#wget https://files.ax86.net/terminus-ttf/files/latest.zip -O bitmap-terminus.zip;
 ## Maybe add blockzone...
-
 
 # INSTALL
 cd ~/.dotfiles/fonts/;
@@ -160,7 +163,6 @@ cp -ru mono-victor-temp/TTF/* mono-victor/;
 cd ~/.dotfiles/fonts/;
 mv download/mono-victor/ out/mono-victor/;
 rm -rf ./download/mono-victor-temp/;
-
 
 # FINISH AND REFRESH CACHE
 cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/;
