@@ -34,7 +34,7 @@ mermaid: shell js
 	bash ./scripts/mermaid.sh
 
 
-langs: shell lua c odin fennel python js ocaml
+langs: shell lua c odin fennel python js ocaml pascal
 odin: setup c
 	bash ./scripts/langs/odin.sh
 lua: setup
@@ -48,6 +48,10 @@ js:
 ocaml:
 	bash ./scripts/langs/ocaml.sh
 c: 
+	
+pascal: c
+	bash ./scripts/langs/pascal.sh
+
 
 desktop: fonts wezterm
 
@@ -61,5 +65,3 @@ fonts: setup shell
 docs: setup
 	mkdir -p ./docs/out
 	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/map.mmd --output ./docs/out/map.svg
-	
-
