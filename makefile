@@ -34,7 +34,7 @@ mermaid: shell js
 	bash ./scripts/mermaid.sh
 
 
-langs: shell lua c odin fennel python js ocaml pascal
+langs: shell c lua odin fennel python js ocaml pascal java
 odin: setup c
 	bash ./scripts/langs/odin.sh
 lua: setup
@@ -51,7 +51,9 @@ c:
 	bash ./scripts/langs/c.sh
 pascal: c
 	bash ./scripts/langs/pascal.sh
-
+java: utils
+	bash ./scripts/langs/java.sh
+	
 
 desktop: fonts wezterm
 
