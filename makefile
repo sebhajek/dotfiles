@@ -78,6 +78,8 @@ multimedia: desktop fonts
 	bash ./scripts/apps/multimedia.sh
 browser:
 
+flatpak:
+	bash ./scripts/apps/flatpak.sh
 
 docs: setup
 	mkdir -p ./docs/out
