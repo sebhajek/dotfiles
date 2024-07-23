@@ -18,7 +18,7 @@ vim.keymap.set({ 'i', 'v' }, '<S-Space>', "<Esc>")
 
 vim.g.have_nerd_font = false
 vim.cmd.set('t_Co=16')
-vim.cmd.colorscheme('dim')
+vim.cmd.colorscheme('oxoargon')
 vim.cmd.set('notermguicolors t_Co=16')
 
 
