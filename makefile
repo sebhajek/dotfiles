@@ -63,13 +63,16 @@ scala: java utils
 go: c
 	bash ./scripts/langs/go.sh
 
-desktop: fonts wezterm
+desktop: fonts wezterm wallpapers
 
 wezterm: setup shell fonts
 	bash ./scripts/desktop/wezterm.sh
 
 fonts: setup shell python
 	bash ./scripts/desktop/fonts.sh
+
+wallpapers:
+	bash ./scripts/desktop/wallpaper.sh
 
 apps: browser gdbgui multimedia
 gdbgui: c python browser
