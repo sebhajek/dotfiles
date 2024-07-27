@@ -1,4 +1,4 @@
-all: setup cli langs desktop apps docs
+all: setup core langs desktop apps docs
 
 
 setup: clean
@@ -9,10 +9,13 @@ clean:
 	rm -f ./wezterm/color.lua
 	rm -rf ./docs/out/
 
+core: utils shell devenv tools buildtools
+langs: c lua odin fennel python js ocaml pascal java c
+desktop: fonts wezterm wallpapers
 
-cli: shell devenv tools buildtools
-
+shell: bash fish
 devenv: nvim lazygit mc
+
 nvim: shell lua buildtools
 	bash ./scripts/nvim.sh
 lazygit:
@@ -25,12 +28,12 @@ buildtools: libs
 libs:
 	bash ./scripts/libs.sh
 
-shell: setup bash utils fish
+
 bash:
 	bash ./scripts/bash.sh
 fish:
 	bash ./scripts/fish.sh
-utils:
+utils: setup
 	bash ./scripts/utils.sh	
 
 tools: mermaid latex
@@ -39,7 +42,6 @@ mermaid: shell js
 latex:
 	bash ./scripts/tools/latex.sh
 
-langs: shell c lua odin fennel python js ocaml pascal java c
 odin: setup c
 	bash ./scripts/langs/odin.sh
 lua: setup
@@ -63,7 +65,6 @@ scala: java utils
 go: c
 	bash ./scripts/langs/go.sh
 
-desktop: fonts wezterm wallpapers
 
 wezterm: setup shell fonts
 	bash ./scripts/desktop/wezterm.sh
@@ -86,4 +87,5 @@ flatpak:
 
 docs: setup
 	mkdir -p ./docs/out
-	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/map.mmd --output ./docs/out/map.svg
+	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/map.mmd --output ./docs/out/map.svg	
+	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/system.mmd --output ./docs/out/system.svg
