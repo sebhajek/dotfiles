@@ -1,0 +1,178 @@
+%%{init: { "flowchart": { } } }%%
+
+graph TD
+
+subgraph SHELL
+  direction LR
+  bash
+  fish
+end
+
+subgraph UTILS
+  direction LR
+  curl
+  wget
+  tar
+  gzip
+  7zip
+  make
+  git
+end
+
+subgraph nvim
+  direction LR
+  lazy
+end
+
+lazygit
+rangerfm
+
+mermaidjs
+tectonic
+
+subgraph BUILDTOOLS
+  direction LR
+  composer
+  rustup
+end
+
+subgraph c
+  direction LR
+  clang
+  gcc
+  gdb
+  llvm
+  g++
+  gfortran
+  nasm
+end
+
+subgraph lua
+  direction LR
+  luarocks
+  lua51
+  luajit
+end
+
+subgraph pascal
+  direction LR
+  fpc
+  lcl
+end
+
+subgraph scala
+  direction LR
+  subgraph java
+    CorrettoJDK
+  end
+  sbt
+  cs
+  g8
+end
+
+odin
+
+subgraph ocaml
+  direction LR
+  opam
+  dune
+end
+
+subgraph fennel
+  direction LR
+  readline
+end
+
+subgraph python
+  direction LR
+  pip
+  pipx
+  jupyter
+  numpy
+  pandas
+  pillow
+  scikit
+end
+
+subgraph js
+  direction LR
+  npm
+end
+
+go
+
+wezterm
+fonts
+wallpapers
+
+subgraph WM
+  direction LR
+  subgraph sway
+    swaybar
+    swaylock
+    rofi-wayland
+    wl-roots
+  end
+
+  subgraph i3wm
+    lemonbar
+    rofi
+    x11
+  end
+end
+
+tuigreet
+codecs
+
+subgraph FLATPAK
+  direction LR
+  GIMP
+  Pixorama
+  Krita
+  Inkscape
+end
+
+subgraph MULTIMEDIA
+  direction LR
+  imv
+  mpv
+  zathura
+end
+
+gdbgui
+firefox
+
+wallpapers --> WM
+fonts --> WM
+fonts --> wezterm
+wezterm --> WM
+tuigreet --> WM
+
+WM --> MULTIMEDIA
+WM --> firefox
+WM --> FLATPAK
+
+codecs --> MULTIMEDIA
+codecs --> firefox
+
+c --> gdbgui
+python --> gdbgui
+
+js --> mermaidjs
+
+lua --> nvim
+BUILDTOOLS --> nvim
+
+c --> odin
+c --> lua
+
+lua --> fennel
+
+python --> fonts
+
+UTILS --> lazygit
+SHELL --> UTILS
+
+SHELL --> odin
+
+SHELL --> mermaidjs

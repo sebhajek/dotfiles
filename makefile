@@ -1,7 +1,7 @@
 all: setup core langs desktop apps docs
 
 
-setup: clean
+setup: clean utils buildtools
 	cp -fu ./lua/lib/color.lua ./wezterm/
 	sudo zypper ref
 
