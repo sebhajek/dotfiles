@@ -85,6 +85,9 @@ browser:
 flatpak:
 	bash ./scripts/apps/flatpak.sh
 
+ssh:
+	bash ./scripts/ssh.sh
+
 docs: setup
 	mkdir -p ./docs/out
 	~/.mermaidjs/node_modules/.bin/mmdc --theme neutral --input ./docs/src/map.mmd --output ./docs/out/map.svg	
