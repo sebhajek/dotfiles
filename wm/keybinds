@@ -1,4 +1,5 @@
 bindsym $mod+d exec $menu
+bindsym $mod+Return exec $term
 
 
 bindsym $mod+Shift+q kill
