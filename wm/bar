@@ -4,7 +4,7 @@ bar {
    font pango:Cozette, JuliaMono, mono Regular 9
    workspace_buttons yes
    binding_mode_indicator yes
-   padding 1px 1px 2px
+   #padding 1px 1px 2px 1px
 
    colors {
          background #000000
