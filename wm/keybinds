@@ -1,0 +1,106 @@
+bindsym $mod+d exec $menu
+
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
+
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+
+bindsym $mod+m mode "move"
+bindsym $mod+f mode "focus"
+bindsym $mod+r mode "resize"
+bindsym $mod+l mode "layout"
+
+mode "move"{
+   bindsym $mod+Escape mode "default"
+   bindsym $mod+m mode "default"
+   bindsym $mod+f mode "focus"
+   bindsym $mod+r mode "resize"
+   bindsym $mod+l mode "layout"
+   
+   bindsym $mod+Shift+y move scratchpad
+   bindsym $mod+y scratchpad show
+
+   bindsym $mod+$left move left
+   bindsym $mod+$down move down
+   bindsym $mod+$up move up
+   bindsym $mod+$right move right
+
+   bindsym $mod+1 move container to workspace number 1
+   bindsym $mod+2 move container to workspace number 2
+   bindsym $mod+3 move container to workspace number 3
+   bindsym $mod+4 move container to workspace number 4
+   bindsym $mod+5 move container to workspace number 5
+   bindsym $mod+6 move container to workspace number 6
+   bindsym $mod+7 move container to workspace number 7
+   bindsym $mod+8 move container to workspace number 8
+   bindsym $mod+9 move container to workspace number 9
+}
+
+mode "resize"{
+   bindsym $mod+Escape mode "default"
+   bindsym $mod+m mode "move"
+   bindsym $mod+f mode "focus"
+   bindsym $mod+r mode "default"
+   bindsym $mod+l mode "layout"
+
+   bindsym $mod+$left resize shrink width 2px
+   bindsym $mod+$down resize grow height 2px
+   bindsym $mod+$up resize shrink height 2px
+   bindsym $mod+$right resize grow width 2px
+
+   bindsym $mod+Shift+$left resize shrink width 16px
+   bindsym $mod+Shift+$down resize grow height 16px
+   bindsym $mod+Shift+$up resize shrink height 16px
+   bindsym $mod+Shift+$right resize grow width 16px
+}
+
+mode "focus"{
+   bindsym $mod+Escape mode "default"
+   bindsym $mod+m mode "move"
+   bindsym $mod+f mode "default"
+   bindsym $mod+r mode "resize"
+   bindsym $mod+l mode "layout"
+
+   bindsym $mod+$left focus left
+   bindsym $mod+$down focus down
+   bindsym $mod+$up focus up
+   bindsym $mod+$right focus right
+   bindsym $mod+a focus parent
+   bindsym $mod+z focus child
+}
+
+mode "layout"{
+   bindsym $mod+Escape mode "default"
+   bindsym $mod+m mode "move"
+   bindsym $mod+f mode "focus"
+   bindsym $mod+r mode "resize"
+   bindsym $mod+l mode "default"
+
+   bindsym $mod+$down layout stacking
+   bindsym $mod+$up layout tabbed
+   bindsym $mod+g layout toggle split
+   bindsym $mod+$left splith
+   bindsym $mod+$right splitv
+
+   bindsym $mod+Shift+f fullscreen
+   bindsym $mod+Shift+x floating toggle
+}
