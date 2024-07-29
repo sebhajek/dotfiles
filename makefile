@@ -97,10 +97,12 @@ fonts: utils python
 
 i3wm: utils shell wezterm
 	bash ./scripts/desktop/i3wm.sh
+	bash ./scripts/desktop/i3status.sh
 
 sway: utils shell wezterm
 	bash ./scripts/desktop/sway.sh
-
+	bash ./scripts/desktop/i3status.sh
+	
 wallpapers: utils
 	bash ./scripts/desktop/wallpaper.sh
 

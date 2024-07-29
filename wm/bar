@@ -8,7 +8,7 @@ bar {
 
    colors {
          background #000000
-         statusline #673ab7
+         statusline #f2f4f8
          separator  #374f49
          #                  border  backg.  text
          focused_workspace  #42be65 #673ab7 #42be65
