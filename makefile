@@ -107,9 +107,6 @@ wallpapers: utils
 wezterm: fonts lua utils setup
 	bash ./scripts/desktop/wezterm.sh
 
-mermaid: js
-	bash ./scripts/tools/mermaid.sh
-
 
 apps: multimedia flatpak gdbgui
 

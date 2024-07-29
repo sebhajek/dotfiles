@@ -1,178 +1,101 @@
-%%{init: { "flowchart": { } } }%%
+%%{init: {'flowchart' : {'curve' : 'linear'}}}%%
 
 graph TD
 
-subgraph SHELL
-  direction LR
-  bash
-  fish
-end
+bash 
+fish
+utils
+ssh
+buildtools
 
-subgraph UTILS
-  direction LR
-  curl
-  wget
-  tar
-  gzip
-  7zip
-  make
-  git
-end
-
-subgraph nvim
-  direction LR
-  lazy
-end
-
-lazygit
-rangerfm
-
-mermaidjs
-tectonic
-
-subgraph BUILDTOOLS
-  direction LR
-  composer
-  rustup
-end
-
-subgraph c
-  direction LR
-  clang
-  gcc
-  gdb
-  llvm
-  g++
-  gfortran
-  nasm
-end
-
-subgraph lua
-  direction LR
-  luarocks
-  lua51
-  luajit
-end
-
-subgraph pascal
-  direction LR
-  fpc
-  lcl
-end
-
-subgraph scala
-  direction LR
-  subgraph java
-    CorrettoJDK
-  end
-  sbt
-  cs
-  g8
-end
-
-odin
-
-subgraph ocaml
-  direction LR
-  opam
-  dune
-end
-
-subgraph fennel
-  direction LR
-  readline
-end
-
-subgraph python
-  direction LR
-  pip
-  pipx
-  jupyter
-  numpy
-  pandas
-  pillow
-  scikit
-end
-
-subgraph js
-  direction LR
-  npm
-end
-
+c
+fennel
 go
+java 
+js 
+lua 
+ocaml 
+odin 
+pascal 
+python 
+scala
 
-wezterm
+latex
+lazygit
+mermaid
+nvim
+
 fonts
+i3wm
+sway
 wallpapers
+wezterm
 
-subgraph WM
-  direction LR
-  subgraph sway
-    swaybar
-    swaylock
-    rofi-wayland
-    wl-roots
-  end
-
-  subgraph i3wm
-    lemonbar
-    rofi
-    x11
-  end
-end
-
-tuigreet
-codecs
-
-subgraph FLATPAK
-  direction LR
-  GIMP
-  Pixorama
-  Krita
-  Inkscape
-end
-
-subgraph MULTIMEDIA
-  direction LR
-  imv
-  mpv
-  zathura
-end
-
+flatpak
 gdbgui
-firefox
+multimedia
 
-wallpapers --> WM
-fonts --> WM
-fonts --> wezterm
-wezterm --> WM
-tuigreet --> WM
+browser
 
-WM --> MULTIMEDIA
-WM --> firefox
-WM --> FLATPAK
+bash --> utils
+fish --> utils
 
-codecs --> MULTIMEDIA
-codecs --> firefox
+bash --> ssh
+fish --> ssh
+utils --> ssh
 
-c --> gdbgui
-python --> gdbgui
-
-js --> mermaidjs
-
-lua --> nvim
-BUILDTOOLS --> nvim
-
-c --> odin
-c --> lua
+c --> buildtools
+go --> buildtools
+python --> buildtools
 
 lua --> fennel
+c --> lua
 
+bash --> ocaml
+fish --> ocaml
+
+bash --> odin
+fish --> odin
+c --> odin
+
+java --> scala
+utils --> scala
+
+js --> mermaid
+
+utils --> latex
+
+utils --> lazygit
+ssh --> lazygit
+
+lua --> nvim
+fennel --> nvim
+buildtools --> nvim
+utils --> nvim
+
+utils --> fonts
 python --> fonts
 
-UTILS --> lazygit
-SHELL --> UTILS
+utils --> i3wm
+bash --> i3wm
+fish --> i3wm
+wezterm --> i3wm
+fonts --> i3wm
+wallpapers --> i3wm
 
-SHELL --> odin
+utils --> sway
+bash --> sway
+fish --> sway
+wezterm --> sway
+fonts --> sway
+wallpapers --> sway
 
-SHELL --> mermaidjs
+utils --> wallpapers
+
+fonts --> wezterm
+fish --> wezterm
+bash --> wezterm
+
+browser --> gdbgui
+python --> gdbgui
+c --> gdbgui
