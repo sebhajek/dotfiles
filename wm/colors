@@ -1,5 +1,6 @@
-#fonts 
+# fonts 
 font pango:Cozette, JuliaMono, mono Regular 9
+
 
 # class                 border  backgr. text    indic.  child
 client.focused          #374f49 #161616 #f2f4f8 #42be65 #673ab7
@@ -11,3 +12,11 @@ client.placeholder      #000000 #000000 #90a4ae #ff6f00 #ff6f00
 client.background       #000000
 
 
+# borders
+default_border pixel 2
+default_floating_border normal 2
+title_align center
+
+gaps inner 4px
+gaps outer 4px
+smart_gaps off
