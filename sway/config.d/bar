@@ -1,0 +1,20 @@
+bar {
+   status_command i3status
+
+   font pango:Cozette, JuliaMono, mono Regular 9
+   workspace_buttons yes
+   binding_mode_indicator yes
+   padding 1px 1px 2px
+
+   colors {
+         background #000000
+         statusline #673ab7
+         separator  #374f49
+         #                  border  backg.  text
+         focused_workspace  #42be65 #673ab7 #42be65
+         active_workspace   #673ab7 #673ab7 #f2f4f8
+         inactive_workspace #673ab7 #673ab7 #374f49
+         urgent_workspace   #ee5396 #673ab7 #ee5396
+         binding_mode       #ff6f00 #374f49 #ff6f00
+   }
+}

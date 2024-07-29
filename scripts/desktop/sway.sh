@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo zypper -n install -tpackage --no-recommends sway-branding-upstream sway swayidle swaylock swaybg swaybar
+sudo zypper -n install -tpackage --no-recommends sway-branding-upstream sway swayidle swaylock swaybg swaybar i3status
 sudo zypper -n install -tpackage --no-recommends dunst grim slurp rofi-wayland wl-clipboard
 
 mkdir -p ~/.config/sway/config.d
