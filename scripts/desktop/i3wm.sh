@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo zypper -n install -tpackage --no-recommends sway-branding-upstream i3 i3status i3lock feh
-sudo zypper -n install -tpackage --no-recommends dunst maim xclip rofi
+sudo zypper -n install -tpackage --no-recommends dunst maim xclip rofi-wayland
 
 mkdir -p ~/.config/i3/config.d
 mkdir -p ~/.config/i3lock
