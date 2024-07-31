@@ -34,7 +34,7 @@ battery all {
         status_unk = "UNK"
         status_full = "FUL"
         low_threshold = 32
-        format = "%status %percentage %remaining %emptytime"
+        format = "%status %percentage"
 }
 
 disk "/" {

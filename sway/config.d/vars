@@ -1,4 +1,3 @@
-set $term wezterm
 input type:touchpad {
       dwt enabled
       tap enabled

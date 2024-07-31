@@ -1,6 +1,5 @@
-bindsym $mod+d exec $menu
+bindsym $mod+d exec $dmenu
 bindsym $mod+Return exec $term
-
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
@@ -105,3 +104,8 @@ bindsym $mod+m mode "move"
 bindsym $mod+f mode "focus"
 bindsym $mod+r mode "resize"
 bindsym $mod+l mode "layout"
+
+input * {
+    xkb_layout "us,cz"
+    xkb_options "grp:win_space_toggle"
+}
