@@ -1,0 +1,1 @@
+export PATH="$PATH:/home/sebhajek/.local/share/coursier/bin"

@@ -1,4 +1,4 @@
 alias odin="~/.odin/odin";
 alias update-odin="pushd ~/.odin && git fetch;git pull;sudo zypper in clang llvm llvm-devel;make;popd";
-export PATH="~/.odin:$PATH";
-export ODIN_ROOT="~/.odin";
+export ODIN_ROOT=$(readlink -f ~/.odin);
+export PATH="$ODIN_ROOT:$PATH";

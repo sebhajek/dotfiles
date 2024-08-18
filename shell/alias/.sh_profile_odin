@@ -1,0 +1,2 @@
+export ODIN_ROOT=$(readlink -f ~/.odin);
+export PATH="$ODIN_ROOT:$PATH";
