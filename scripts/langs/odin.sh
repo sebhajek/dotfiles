@@ -10,6 +10,7 @@ mkdir -p ~/.odin/
 git clone https://github.com/odin-lang/Odin ~/.odin
 sudo zypper -n in clang llvm llvm-devel
 cd ~/.odin/ && make
+cd ~/.odin/ && make release
 
 source ~/.bashrc
 ~/.odin/odin version
