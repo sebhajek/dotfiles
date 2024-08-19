@@ -42,9 +42,9 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.expandtab = true
-vim.opt.tabstop = 3
-vim.opt.softtabstop = 3
-vim.opt.shiftwidth = 3
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.formatoptions:append({ c = true, r = true, o = true, q = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -287,6 +287,7 @@ require('lazy').setup({
          local capabilities = vim.lsp.protocol.make_client_capabilities()
          capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+         ---@type lspconfig.options
          local servers = {
             asm_lsp = {
             },
@@ -331,6 +332,7 @@ require('lazy').setup({
             ocamllsp = {
             },
             ols = {
+
             },
             pyright = {
             },
