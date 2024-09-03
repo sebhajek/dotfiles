@@ -1,4 +1,4 @@
-all: setup core langs desktop
+all: setup core env langs desktop
 
 
 setup: clean
