@@ -35,7 +35,7 @@ function fish_prompt -d "Write out the prompt"
     end
 
     
-    echo $in_color"═╡"$normal
+    echo $in_color""$normal
 
     set -l last_status $status
     set -l prompt_status $status_color"∅"$normal
@@ -46,7 +46,7 @@ function fish_prompt -d "Write out the prompt"
     set -l status_text $in_color"╘═"$normal"("$prompt_status")"
     echo -n $status_text
 
-    echo -n -e $in_color"═══╡❱❱ "$normal
+    echo -n -e $in_color"═╡❱❱ "$normal
 
 end
 
