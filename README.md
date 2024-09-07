@@ -1,5 +1,31 @@
 # My dot-files
 
+## Install
+```bash
+sudo zypper in bash curl; curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash;
+```
+
+### Makefile dependencies
+
+```mermaid
+%%{ init: { "flowchart": { "htmlLabels": false, "curve": "stepBefore" } } }%%
+graph LR
+accTitle: Makefile dependencies
+accDescr: Makefile dependencies
+
+    subgraph inst["installations"]
+        direction BT
+
+        subgraph shdeps["Shell"]
+            direction BT
+            sh["sh"] --> bash["bash"] --> fish["fish"]
+        end
+
+        utilsdeps["Utils"] --> shdeps --> cdeps["C"]
+        
+    end
+```
+
 ### Dictionary
 
 - https://github.com/tvondra/ispell_czech
