@@ -6,6 +6,9 @@ return {
 				ensure_installed = {
 					'stylua',
 					'shfmt',
+					'markdown-toc',
+					'mdslw',
+					'mdformat',
 				},
 			}
 		end,
@@ -46,6 +49,7 @@ return {
 			formatters_by_ft = {
 				lua = { 'stylua' },
 				bash = { 'shfmt' },
+				markdown = { 'injected', 'markdown-toc', 'mdformat', 'mdslw' },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
