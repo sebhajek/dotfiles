@@ -9,6 +9,7 @@ return {
 					'markdown-toc',
 					'mdslw',
 					'mdformat',
+					'beautysh',
 				},
 			}
 		end,
@@ -48,7 +49,8 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { 'stylua' },
-				bash = { 'shfmt' },
+				bash = { 'beautysh', 'shfmt' },
+				makefile = { 'injected' },
 				markdown = { 'injected', 'markdown-toc', 'mdformat', 'mdslw' },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
