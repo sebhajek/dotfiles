@@ -1,36 +1,43 @@
 # My dot-files
 
+<!-- toc -->
+
+- [Install](#install)
+- [What is part of this?](#what-is-part-of-this)
+  - [Development environment](#development-environment)
+    - [Neovim](#neovim)
+- [Credits and other interesting links](#credits-and-other-interesting-links)
+  - [Dictionary](#dictionary)
+  - [Color-scheme](#color-scheme)
+
+<!-- tocstop -->
+
 ## Install
+
 ```bash
-sudo zypper in bash curl; curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash;
+sudo zypper in bash curl
+curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash
 ```
 
-### Makefile dependencies
+## What is part of this?
 
-```mermaid
-%%{ init: { "flowchart": { "htmlLabels": false, "curve": "stepBefore" } } }%%
-graph LR
-accTitle: Makefile dependencies
-accDescr: Makefile dependencies
+### Development environment
 
-    subgraph inst["installations"]
-        direction BT
+#### Neovim
 
-        subgraph shdeps["Shell"]
-            direction BT
-            sh["sh"] --> bash["bash"] --> fish["fish"]
-        end
+Current Neovim configuration is done in a way where it supports tree-sitter,
+telescope, C, Lua, Markdown, Latex, Bash, formatting for those languages and LSP
+for those languages.
+The color-scheme is also trying to be compatible with 16 ANSI colors to not be
+particularly environment dependent.
 
-        utilsdeps["Utils"] --> shdeps --> cdeps["C"]
-        
-    end
-```
+## Credits and other interesting links
 
 ### Dictionary
 
 - https://github.com/tvondra/ispell_czech
 
-## Color-scheme
+### Color-scheme
 
 Inspirations:
 
