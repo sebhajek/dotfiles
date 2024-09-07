@@ -10,7 +10,7 @@ ______________________________________________________________________
 - [What is part of this?](#what-is-part-of-this)
   - [Development environment](#development-environment)
     - [Neovim](#neovim)
-      - [Keymaps](#keymaps)
+      - [Key-maps](#key-maps)
 - [Credits and other interesting links](#credits-and-other-interesting-links)
   - [Dictionary](#dictionary)
   - [Color-scheme](#color-scheme)
@@ -38,12 +38,25 @@ for those languages.
 The color-scheme is also trying to be compatible with 16 ANSI colors to not be
 particularly environment dependent.
 
-##### Keymaps
+##### Key-maps
 
-| key-strokes  | command               |
-|--------------|-----------------------|
-| `<leader>ff` | telescope file finder |
-| `<leader>gd` | LSP goto definition   |
+| key-strokes   | command                   |
+|---------------|---------------------------|
+| `<leader>ff`  | telescope file finder     |
+| `<leader>fg`  | telescope live grep       |
+| `<leader>fb`  | telescope search buffers  |
+| `<leader>fh`  | telescope help tags       |
+| `<leader>gd`  | LSP go-to definition      |
+| `<leader>gD`  | LSP go-to declaration     |
+| `<leader>gr`  | LSP go-to reference       |
+| `<leader>gr`  | LSP show code actions     |
+| `K`           | LSP show docs             |
+| `<leader>ft`  | conform apply format      |
+| `<C-b>`       | scroll cmp docs down      |
+| `<C-f>`       | scroll cmp docs up        |
+| `<C-Space>`   | start cmp menu            |
+| `<C-e>`       | end cmp menu              |
+| `<CR>`        | confirm cmp option        |
 
 ## Credits and other interesting links
 
