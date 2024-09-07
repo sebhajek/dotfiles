@@ -1,16 +1,23 @@
 # My dot-files
 
+______________________________________________________________________
+
+## Table of Contents
+
 <!-- toc -->
 
 - [Install](#install)
 - [What is part of this?](#what-is-part-of-this)
   - [Development environment](#development-environment)
     - [Neovim](#neovim)
+      - [Keymaps](#keymaps)
 - [Credits and other interesting links](#credits-and-other-interesting-links)
   - [Dictionary](#dictionary)
   - [Color-scheme](#color-scheme)
 
 <!-- tocstop -->
+
+______________________________________________________________________
 
 ## Install
 
@@ -30,6 +37,13 @@ telescope, C, Lua, Markdown, Latex, Bash, formatting for those languages and LSP
 for those languages.
 The color-scheme is also trying to be compatible with 16 ANSI colors to not be
 particularly environment dependent.
+
+##### Keymaps
+
+| key-strokes  | command               |
+|--------------|-----------------------|
+| `<leader>ff` | telescope file finder |
+| `<leader>gd` | LSP goto definition   |
 
 ## Credits and other interesting links
 
