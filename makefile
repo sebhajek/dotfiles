@@ -161,6 +161,7 @@ ranger: python
 mermaidjs: js shell
 	cp -fu ./shell/alias/.bash_profile_mermaid ~/.shell/ ;
 	cp -fu ./shell/alias/config_mermaid.fish ~/.config/fish/conf.d/ ;
+	cp -fu ./shell/alias/.sh_profile_mermaid ~/.shell/ ;
 	mkdir -p ~/.mermaidjs/ ;
 	rm -rf ~/.mermaidjs/* ;
 	cd ~/.mermaidjs/ ;
@@ -170,6 +171,9 @@ mermaidjs: js shell
 latex:
 	mkdir -p ~/.tectonic ;
 	cd ~/.tectonic && curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh ;
+	cp -fu ./shell/alias/.bash_profile_tex ~/.shell/ ;
+	cp -fu ./shell/alias/.sh_profile_tex ~/.shell/ ;
+	cp -fu ./shell/alias/config_tex.fish ~/.config/fish/conf.d/ ;
 	sudo dnf install -y pandoc-cli librsvg2 R-rsvg ;
 
 graphviz:
