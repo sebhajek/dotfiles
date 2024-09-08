@@ -1,0 +1,19 @@
+<svg width="800" height="224" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="224" x="0" y="0" rx="0" ry="0" fill="rgb(0,0,0)" />
+<rect width="64" height="64" x="32" y="32" rx="4" ry="4" fill="rgb(22,22,22)" />
+<rect width="64" height="64" x="128" y="32" rx="4" ry="4" fill="rgb(238,83,150)" />
+<rect width="64" height="64" x="224" y="32" rx="4" ry="4" fill="rgb(55,79,73)" />
+<rect width="64" height="64" x="320" y="32" rx="4" ry="4" fill="rgb(255,111,0)" />
+<rect width="64" height="64" x="416" y="32" rx="4" ry="4" fill="rgb(51,177,255)" />
+<rect width="64" height="64" x="512" y="32" rx="4" ry="4" fill="rgb(103,58,183)" />
+<rect width="64" height="64" x="608" y="32" rx="4" ry="4" fill="rgb(8,189,186)" />
+<rect width="64" height="64" x="704" y="32" rx="4" ry="4" fill="rgb(144,164,174)" />
+<rect width="64" height="64" x="32" y="128" rx="4" ry="4" fill="rgb(57,57,57)" />
+<rect width="64" height="64" x="128" y="128" rx="4" ry="4" fill="rgb(255,126,182)" />
+<rect width="64" height="64" x="224" y="128" rx="4" ry="4" fill="rgb(66,190,101)" />
+<rect width="64" height="64" x="320" y="128" rx="4" ry="4" fill="rgb(255,171,145)" />
+<rect width="64" height="64" x="416" y="128" rx="4" ry="4" fill="rgb(120,169,255)" />
+<rect width="64" height="64" x="512" y="128" rx="4" ry="4" fill="rgb(190,149,255)" />
+<rect width="64" height="64" x="608" y="128" rx="4" ry="4" fill="rgb(61,219,217)" />
+<rect width="64" height="64" x="704" y="128" rx="4" ry="4" fill="rgb(221,225,230)" />
+</svg>
