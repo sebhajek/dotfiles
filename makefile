@@ -133,8 +133,10 @@ scala: java shell
 	/home/sebhajek/.local/share/coursier/bin/cs update g8
 
 
-devenv: nvim lazygit ranger
+devenv: nvim lazygit ranger tools
 	sudo dnf install -y htop fzf tealdeer cloc entr hyperfine jq ;
+
+tools: mermaidjs latex graphviz
 
 nvim: lua c
 	sudo dnf install -y neovim ;
@@ -155,4 +157,19 @@ lazygit: go
 
 ranger: python
 	sudo dnf install -y ranger ;
-	
+
+mermaidjs: js shell
+	cp -fu ./shell/alias/.bash_profile_mermaid ~/.shell/ ;
+	cp -fu ./shell/alias/config_mermaid.fish ~/.config/fish/conf.d/ ;
+	mkdir -p ~/.mermaidjs/ ;
+	rm -rf ~/.mermaidjs/* ;
+	cd ~/.mermaidjs/ ;
+	npm install @mermaid-js/mermaid-cli ;
+	npm update ;
+
+latex:
+	mkdir -p ~/.tectonic ;
+	cd ~/.tectonic && curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh ;
+	sudo dnf install -y pandoc-cli librsvg2 R-rsvg ;
+
+graphviz:
