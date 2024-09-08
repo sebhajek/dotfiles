@@ -87,6 +87,7 @@ ocaml: shell
 	sudo dnf install -y opam ocaml ocaml-dune ;
 	opam init -y --reinit -ni ;
 	eval $(opam env) ;
+	opam switch remove 4.12.0 ;
 	opam switch create 4.12.0 ;
 	eval $(opam env) ;
 
