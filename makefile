@@ -18,7 +18,7 @@ docs: setup
 
 
 utils: bash
-	sudo dnf install -y git wget curl make tar p7zip gzip ;
+	sudo dnf install -y git wget curl make tar p7zip gzip mercurial ;
 
 libs: buildtools
 	sudo dnf install -y openssl openssl-devel openssl-libs ;
@@ -50,7 +50,9 @@ fish:
 langs: c lua fnl go java js ocaml odin pascal python scala
 
 c:
-	sudo dnf install -y gcc gdb make gcc-c++ gcc-fortran clang nasm ;
+	sudo dnf install -y gcc gdb make;
+	sudo dnf install -y gcc-c++ gcc-fortran clang nasm;
+	sudo dnf install -y valgrind;
 
 fnl: lua
 	sudo dnf install -y fennel compat-lua compat-lua-devel readline readline-devel compat-readline6 compat-readline6-devel lua-readline ;
@@ -124,3 +126,27 @@ scala: java shell
 	/home/sebhajek/.local/share/coursier/bin/cs install giter8
 	/home/sebhajek/.local/share/coursier/bin/cs update g8
 
+
+devenv: nvim lazygit ranger
+	sudo dnf install -y htop fzf tealdeer cloc entr hyperfine jq ;
+
+nvim:
+	sudo dnf install -y neovim ;
+	mkdir -p ~/.config/nvim ;
+	mkdir -p ~/.vim/colors ;
+	rm -rf ~/.config/nvim/* ;
+	cp -ru ./nvim/* ~/.config/nvim/ ;
+
+lazygit:
+	sudo dnf copr enable -y atim/lazygit ;
+	sudo dnf install -y lazygit	;
+	mkdir -p ~/.config/lazygit ;
+	mkdir -p ~/.config/jesseduffield/lazygit ;
+	rm -rf ~/.config/lazygit/* ;
+	rm -rf ~/.config/jesseduffield/lazygit/* ;
+	cp -ru ./lazygit/* ~/.config/lazygit/ ;
+	cp -ru ./lazygit/* ~/.config/jesseduffield/lazygit/ ;
+
+ranger:
+	sudo dnf install -y ranger ;
+	
