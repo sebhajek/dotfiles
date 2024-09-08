@@ -26,10 +26,10 @@ bindsym $mod+z focus child
 
 mode "move" {
    bindsym $mod+Escape mode "default"
-   bindsym $mod+m mode "default"
-   bindsym $mod+f mode "focus"
-   bindsym $mod+r mode "resize"
-   bindsym $mod+l mode "layout"
+   bindsym $mod+m mode "move"
+   bindsym $mod+n mode "focus"
+   bindsym $mod+b mode "resize"
+   bindsym $mod+v mode "layout"
    
    bindsym $mod+Shift+y move scratchpad
    bindsym $mod+y scratchpad show
@@ -53,9 +53,9 @@ mode "move" {
 mode "resize" {
    bindsym $mod+Escape mode "default"
    bindsym $mod+m mode "move"
-   bindsym $mod+f mode "focus"
-   bindsym $mod+r mode "default"
-   bindsym $mod+l mode "layout"
+   bindsym $mod+n mode "focus"
+   bindsym $mod+b mode "resize"
+   bindsym $mod+v mode "layout"
 
    bindsym $mod+$left resize shrink width 2px
    bindsym $mod+$down resize grow height 2px
@@ -71,9 +71,9 @@ mode "resize" {
 mode "focus" {
    bindsym $mod+Escape mode "default"
    bindsym $mod+m mode "move"
-   bindsym $mod+f mode "default"
-   bindsym $mod+r mode "resize"
-   bindsym $mod+l mode "layout"
+   bindsym $mod+n mode "focus"
+   bindsym $mod+b mode "resize"
+   bindsym $mod+v mode "layout"
 
    bindsym $mod+$left focus left
    bindsym $mod+$down focus down
@@ -86,9 +86,9 @@ mode "focus" {
 mode "layout" {
    bindsym $mod+Escape mode "default"
    bindsym $mod+m mode "move"
-   bindsym $mod+f mode "focus"
-   bindsym $mod+r mode "resize"
-   bindsym $mod+l mode "default"
+   bindsym $mod+n mode "focus"
+   bindsym $mod+b mode "resize"
+   bindsym $mod+v mode "layout"
 
    bindsym $mod+$down layout stacking
    bindsym $mod+$up layout tabbed
@@ -101,9 +101,9 @@ mode "layout" {
 }
 
 bindsym $mod+m mode "move"
-bindsym $mod+f mode "focus"
-bindsym $mod+r mode "resize"
-bindsym $mod+l mode "layout"
+bindsym $mod+n mode "focus"
+bindsym $mod+b mode "resize"
+bindsym $mod+v mode "layout"
 
 input * {
     xkb_layout "us,cz"
