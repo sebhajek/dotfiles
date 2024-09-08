@@ -75,7 +75,7 @@ go: shell
 java:
 	sudo rpm --import https://yum.corretto.aws/corretto.key ;
 	sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo ;
-	sudo dnf install -y java-21-amazon-corretto-devel ;
+	sudo dnf install -y java-21-amazon-corretto-devel java-17-amazon-corretto-devel;
 	sudo dnf install -y maven ;
 
 js:
