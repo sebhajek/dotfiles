@@ -159,5 +159,6 @@ rm -rf ./download/mono-victor-temp/
 
 # FINISH AND REFRESH CACHE
 mkdir -p ~/.local/share/fonts/ ;
-cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/
-fc-cache -fv && sudo fc-cache -f /usr/share/fonts/
+cp -fru ~/.dotfiles/fonts/out/* ~/.local/share/fonts/ ;
+fc-cache -fv && fc-cache -f ~/.local/share/fonts/ && sudo fc-cache -f /usr/share/fonts/ ;
+
