@@ -85,11 +85,10 @@ ocaml: shell
 	cp -fu ./shell/alias/.bash_profile_ocaml ~/.shell/ ;
 	cp -fu ./shell/alias/config_ocaml.fish ~/.config/fish/conf.d/ ;
 	sudo dnf install -y opam ocaml ocaml-dune ;
-	opam init -y --reinit -ni ;
-	eval $(opam env) ;
-	opam switch remove 4.12.0 --yes --confirm-level=unsafe-yes;
-	opam switch create 4.12.0 --yes --confirm-level=unsafe-yes;
-	eval $(opam env) ;
+	-opam init -y --reinit -ni ;
+	-eval $(opam env) ;
+	-opam switch create 4.12.0 --yes --confirm-level=unsafe-yes;
+	-eval $(opam env) ;
 
 odin: c shell
 	cp -fu ./shell/alias/.bash_profile_odin ~/.shell/ ;
