@@ -99,7 +99,7 @@ odin: c shell
 	mkdir -p ~/.odin/ ;
 	git clone https://github.com/odin-lang/Odin ~/.odin ;
 	sudo dnf copr enable -y @fedora-llvm-team/llvm18 ;
-	sudo dnf install -y llvm18 llvm18-devel clang18;
+	sudo dnf upgrade -y llvm llvm-devel clang;
 	cd ~/.odin/ && make ;
 	cd ~/.odin/ && make release ;
 
