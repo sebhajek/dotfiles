@@ -107,7 +107,7 @@ pascal:
 
 python: c
 	sudo dnf install -y python3 python3-pip python3-userpath ;
-	python3 -m userpath append ~/.local/bin ;
+#	python3 -m userpath append ~/.local/bin ;
 	sudo dnf install -y pipx ;
 	sudo dnf install -y python3-numpy python3-numpy-doc python3-pandas ;
 #	sudo dnf install -y python3-scikit-image python3-scikit-learn python3-scikit-misc ;
