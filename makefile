@@ -50,7 +50,7 @@ fish:
 langs: c lua fnl go java js ocaml odin pascal python scala
 
 c:
-	sudo dnf install -y gcc gdb make gcc-c++ gcc-fortran llvm15 llvm15-devel clang nasm ;
+	sudo dnf install -y gcc gdb make gcc-c++ gcc-fortran clang nasm ;
 
 fnl: lua
 	sudo dnf install -y fennel compat-lua compat-lua-devel readline readline-devel compat-readline6 compat-readline6-devel lua-readline ;
@@ -87,8 +87,8 @@ ocaml: shell
 	sudo dnf install -y opam ocaml ocaml-dune ;
 	opam init -y --reinit -ni ;
 	eval $(opam env) ;
-	opam switch remove 4.12.0 ;
-	opam switch create 4.12.0 ;
+	opam switch remove 4.12.0 --yes --confirm-level=unsafe-yes;
+	opam switch create 4.12.0 --yes --confirm-level=unsafe-yes;
 	eval $(opam env) ;
 
 odin: c shell
@@ -98,7 +98,8 @@ odin: c shell
 	rm -rf ~/.odin ;
 	mkdir -p ~/.odin/ ;
 	git clone https://github.com/odin-lang/Odin ~/.odin ;
-	sudo dnf install -y llvm15 llvm15-devel clang ;
+	sudo dnf copr enable -y @fedora-llvm-team/llvm18 ;
+	sudo dnf install -y llvm18 llvm18-devel clang18;
 	cd ~/.odin/ && make ;
 	cd ~/.odin/ && make release ;
 
