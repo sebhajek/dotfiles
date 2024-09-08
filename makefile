@@ -25,7 +25,7 @@ libs: buildtools
 
 buildtools: c go
 	sudo dnf install -y rustup composer ;
-	rustup init ;
+	rustup-init -y ;
 	rustup toolchain install stable ;
 
 shell: bash fish
