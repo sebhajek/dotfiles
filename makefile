@@ -106,7 +106,7 @@ pascal:
 #	sudo dnf install -y lazarus-lcl ;
 
 python: c
-	sudo dnf install -y python3 python3-pip ;
+	sudo dnf install -y python3 python3-pip python3-userpath ;
 	python3 -m userpath append ~/.local/bin ;
 	sudo dnf install -y pipx ;
 	sudo dnf install -y python3-numpy python3-numpy-doc python3-pandas ;
