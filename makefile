@@ -189,7 +189,7 @@ fonts: python shell
 	fc-cache -fv && sudo fc-cache -f /usr/share/fonts/ ;
 
 wezterm: setup fonts shell fish
-	sudo dnf copr enable wezfurlong/wezterm-nightly ;
+	sudo dnf copr enable -y wezfurlong/wezterm-nightly ;
 	sudo dnf install -y wezterm ;
 	mkdir -p ~/.config/wezterm ;
 	rm -rf ~/.config/wezterm/* ;
