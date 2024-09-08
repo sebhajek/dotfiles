@@ -181,6 +181,7 @@ graphviz: latex
 desktop: fonts wezterm sway
 
 fonts: python shell
+	mkdir -p ~/.fonts/
 	bash ./scripts/install/fonts.sh ; 
 	sudo dnf install -y xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi xorg-x11-fonts-ISO8859-14-100dpi xorg-x11-fonts-ISO8859-14-75dpi xorg-x11-fonts-ISO8859-15-100dpi xorg-x11-fonts-ISO8859-15-75dpi xorg-x11-fonts-ISO8859-2-100dpi xorg-x11-fonts-ISO8859-2-75dpi xorg-x11-fonts-ISO8859-9-100dpi xorg-x11-fonts-ISO8859-9-75dpi xorg-x11-fonts-Type1 xorg-x11-fonts-cyrillic xorg-x11-fonts-misc ;
 	fc-cache -fv && sudo fc-cache -f /usr/share/fonts/ ;
@@ -198,7 +199,7 @@ sway: wezterm
 	sudo dnf install -y dunst grim slurp rofi-wayland wl-clipboard ;
 	rm -rf ~/.config/sway/* ; 
 	mkdir -p ~/.config/sway/config.d ;
-	mkdir -p ~/.config/swaylock ;
+	-mkdir -p ~/.config/swaylock ;
 	cp -ur ./sway/* ~/.config/sway/ ;
 	cp -ur ./wm/* ~/.config/sway/config.d ;
-	cp -ur ./wmlock/* ~/.config/swaylock ;
+	-cp -ur ./wmlock/* ~/.config/swaylock ;
