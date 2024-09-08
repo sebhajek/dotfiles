@@ -105,11 +105,12 @@ pascal:
 	sudo dnf install -y fpc fpc-doc lazarus-lcl ;
 
 python: c
-	sudo dnf install -y python3 python3-pip python3-notebook ;
+	sudo dnf install -y python3 python3-pip ;
 	python3 -m userpath append ~/.local/bin ;
 	sudo dnf install -y pipx ;
-	sudo dnf install -y python3-numpy python3-numpy-doc python3-pandas python3-pillow ;
-	sudo dnf install -y python3-scikit-image python3-scikit-learn python3-scikit-misc ;
+	sudo dnf install -y python3-numpy python3-numpy-doc python3-pandas ;
+#	sudo dnf install -y python3-scikit-image python3-scikit-learn python3-scikit-misc ;
+#	sudo dnf install -y python3-notebook python3-pillow ;
 
 scala: java shell
 	rm -rf ~/.scala/*
