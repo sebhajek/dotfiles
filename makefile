@@ -183,6 +183,6 @@ graphviz: latex
 
 desktop: fonts
 
-fonts:
-	sudo dnf install -y xorg-x11-fonts ;
+fonts: python shell
 	bash ./scripts/fonts.sh ; 
+	sudo dnf install -y xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi xorg-x11-fonts-ISO8859-14-100dpi xorg-x11-fonts-ISO8859-14-75dpi xorg-x11-fonts-ISO8859-15-100dpi xorg-x11-fonts-ISO8859-15-75dpi xorg-x11-fonts-ISO8859-2-100dpi xorg-x11-fonts-ISO8859-2-75dpi xorg-x11-fonts-ISO8859-9-100dpi xorg-x11-fonts-ISO8859-9-75dpi xorg-x11-fonts-Type1 xorg-x11-fonts-cyrillic xorg-x11-fonts-misc ;
