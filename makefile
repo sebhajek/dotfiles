@@ -25,8 +25,8 @@ libs: buildtools
 
 buildtools: c go
 	sudo dnf install -y rustup composer ;
+	rustup init ;
 	rustup toolchain install stable ;
-
 
 shell: bash fish
 	mkdir -p ~/.shell;
@@ -121,7 +121,6 @@ scala: java shell
 	cp -fu ./shell/alias/.sh_profile_scala ~/.shell/
 	cd ~/.scala/cs/
 	curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d >~/.scala/cs/cs && chmod +x ~/.scala/cs/cs && ~/.scala/cs/cs setup --yes
-	export PATH="$PATH:/home/sebhajek/.local/share/coursier/bin"
-	cs install giter8
-	cs update g8
+	/home/sebhajek/.local/share/coursier/bin/cs install giter8
+	/home/sebhajek/.local/share/coursier/bin/cs update g8
 
