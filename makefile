@@ -117,7 +117,7 @@ pascal:
 
 python: c
 	sudo dnf install -y python3 python3-pip python3-userpath ;
-#	python3 -m userpath append ~/.local/bin ;
+	-python3 -m userpath append ~/.local/bin ;
 	sudo dnf install -y pipx ;
 	sudo dnf install -y python3-numpy python3-numpy-doc python3-pandas ;
 #	sudo dnf install -y python3-scikit-image python3-scikit-learn python3-scikit-misc ;
@@ -127,8 +127,7 @@ scala: java shell
 	rm -rf ~/.scala/*
 	mkdir -p ~/.scala/cs/
 	cp -fu ./shell/alias/.sh_profile_scala ~/.shell/
-	cd ~/.scala/cs/
-	curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d >~/.scala/cs/cs && chmod +x ~/.scala/cs/cs && ~/.scala/cs/cs setup --yes
+	cd ~/.scala/cs/ && curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d >~/.scala/cs/cs && chmod +x ~/.scala/cs/cs && ~/.scala/cs/cs setup --yes
 	/home/sebhajek/.local/share/coursier/bin/cs install giter8
 	/home/sebhajek/.local/share/coursier/bin/cs update g8
 
@@ -164,9 +163,7 @@ mermaidjs: js shell
 	cp -fu ./shell/alias/.sh_profile_mermaid ~/.shell/ ;
 	mkdir -p ~/.mermaidjs/ ;
 	rm -rf ~/.mermaidjs/* ;
-	cd ~/.mermaidjs/ ;
-	npm install @mermaid-js/mermaid-cli ;
-	npm update ;
+	cd ~/.mermaidjs/ && npm install @mermaid-js/mermaid-cli && npm update ;
 
 latex:
 	mkdir -p ~/.tectonic ;
