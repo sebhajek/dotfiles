@@ -102,7 +102,8 @@ odin: c shell
 	cd ~/.odin/ && make release ;
 
 pascal:
-	sudo dnf install -y fpc fpc-doc lazarus-lcl ;
+	sudo dnf install -y fpc fpc-doc ;
+#	sudo dnf install -y lazarus-lcl ;
 
 python: c
 	sudo dnf install -y python3 python3-pip ;
