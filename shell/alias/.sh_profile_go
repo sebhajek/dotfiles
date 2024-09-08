@@ -1,0 +1,1 @@
+export GOPATH=$(readlink -f ~/.go)
