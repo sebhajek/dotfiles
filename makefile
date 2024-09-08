@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-all: setup headless
+all: setup headless desktop
 	source ~/.bashrc
 
 headless: utils shell libs langs devenv
@@ -179,3 +179,10 @@ latex:
 
 graphviz: latex
 	sudo dnf install -y graphviz;
+
+
+desktop: fonts
+
+fonts:
+	sudo dnf install -y xorg-x11-fonts ;
+	bash ./scripts/fonts.sh ; 

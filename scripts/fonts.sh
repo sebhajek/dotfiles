@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-sudo zypper in xorg-x11-fonts
 
 mkdir -p ~/.dotfiles/fonts/
 rm -rf ~/.dotfiles/fonts/
