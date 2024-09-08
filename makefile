@@ -194,7 +194,9 @@ wezterm: setup fonts shell fish
 	cp -ru ./wezterm/* ~/.config/wezterm/ ;
 
 sway: wezterm
-	sudo dnf swap -y sway-config sway-config-upstream ;
+	sudo dnf swap -y sway-config sway-config-minimal ;
+	sudo dnf install -y pipewire-pulseaudio pipewire ;
+	systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
 	sudo dnf install -y dunst grim slurp rofi-wayland wl-clipboard ;
 	rm -rf ~/.config/sway/* ; 
