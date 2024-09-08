@@ -1,5 +1,11 @@
-all: setup utils shell libs langs devenv
+SHELL := /bin/bash
+
+all: setup headless
 	source ~/.bashrc
+
+headless: utils shell libs langs devenv
+	source ~/.bashrc
+
 
 setup: clean
 	cp -fu ./lua/lib/color.lua ./wezterm/ ;
