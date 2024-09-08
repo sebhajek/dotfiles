@@ -67,22 +67,22 @@ mv download/bitmap-gnu-unifont.otf out/bitmap/bitmap-gnu-unifont.otf
 
 ## DISPLAY AND PRINT
 cd ~/.dotfiles/fonts/download/
-7z x family-ibm-plex.zip -aoa -y
-7z x mono-nerd-blex.zip -aoa -y -omono-nerd-blex
+7za x family-ibm-plex.zip -aoa -y
+7za x mono-nerd-blex.zip -aoa -y -omono-nerd-blex
 mv OpenType/ family-ibm-plex/
 mv mono-nerd-blex/ family-ibm-plex/Nerd-Mono
 cd ~/.dotfiles/fonts/
 mv download/family-ibm-plex/ out/family-ibm-plex/
 
 cd ~/.dotfiles/fonts/download/
-7z x family-fira.zip -aoa -y
+7za x family-fira.zip -aoa -y
 mv Fira-4.202/otf/ family-fira/
 rm -rf ./Fira-4.202
 cd ~/.dotfiles/fonts/
 mv download/family-fira/ out/family-fira/
 
 cd ~/.dotfiles/fonts/download/
-7z x family-apple-sf.zip -aoa -y
+7za x family-apple-sf.zip -aoa -y
 mkdir -p ./family-apple-sf
 cp -ru ./SFWindows-main/'SF Compact'/* ./family-apple-sf/
 cp -ru ./SFWindows-main/'SF Mono'/* ./family-apple-sf/
@@ -94,21 +94,21 @@ mv download/family-apple-sf/ out/family-apple-sf/
 
 ## COLLECTIONS
 cd ~/.dotfiles/fonts/download/
-7z x collection-urw35.zip -aoa -y
+7za x collection-urw35.zip -aoa -y
 mv urw-base35-fonts-20200910/fonts/ collection-urw35/
 rm -rf ./urw-base35-fonts-20200910
 cd ~/.dotfiles/fonts/
 mv download/collection-urw35/ out/collection-urw35/
 
 cd ~/.dotfiles/fonts/download/
-7z x collection-gnu.zip -aoa -y -ocollection-gnu-temp/
+7za x collection-gnu.zip -aoa -y -ocollection-gnu-temp/
 mv collection-gnu-temp/sfd/ collection-gnu/
 rm -rf ./collection-gnu-temp
 cd ~/.dotfiles/fonts/
 mv download/collection-gnu/ out/collection-gnu/
 
 cd ~/.dotfiles/fonts/download/
-7z x collection-codeface.zip -aoa -y
+7za x collection-codeface.zip -aoa -y
 mv fonts/ collection-codeface/
 mv mono-comic.ttf collection-codeface/comic-mono.ttf
 cd ~/.dotfiles/fonts/
@@ -116,7 +116,7 @@ mv download/collection-codeface/ out/collection-codeface/
 
 ## MONOSPACE
 cd ~/.dotfiles/fonts/download/
-7z x mono-fira-code.zip -aoa -y -omono-fira-code-temp/
+7za x mono-fira-code.zip -aoa -y -omono-fira-code-temp/
 mkdir -p ~/.dotfiles/fonts/download/mono-fira-code
 cp -ru mono-fira-code-temp/ttf/* mono-fira-code/
 cp -ru mono-fira-code-temp/variable_ttf/* mono-fira-code/
@@ -125,7 +125,7 @@ mv download/mono-fira-code/ out/mono-fira-code/
 rm -rf ./download/mono-fira-code-temp
 
 cd ~/.dotfiles/fonts/download/
-7z x mono-jetbrains.zip -aoa -y -omono-jetbrains-temp/
+7za x mono-jetbrains.zip -aoa -y -omono-jetbrains-temp/
 mkdir -p ~/.dotfiles/fonts/download/mono-jetbrains
 cp -ru mono-jetbrains-temp/fonts/ttf/* mono-jetbrains/
 cp -ru mono-jetbrains-temp/fonts/variable/* mono-jetbrains/
@@ -134,13 +134,13 @@ mv download/mono-jetbrains/ out/mono-jetbrains/
 rm -rf ./download/mono-jetbrains-temp/
 
 cd ~/.dotfiles/fonts/download/
-7z x mono-julia.zip -aoa -y -omono-julia-temp/
+7za x mono-julia.zip -aoa -y -omono-julia-temp/
 rm -f mono-julia-temp/LICENSE
 cd ~/.dotfiles/fonts/
 mv download/mono-julia-temp/ out/mono-julia/
 
 cd ~/.dotfiles/fonts/download/
-7z x mono-kode.zip -aoa -y
+7za x mono-kode.zip -aoa -y
 mkdir -p ~/.dotfiles/fonts/download/mono-kode
 cp -ru kode-mono-fonts/fonts/ttf/* mono-kode/
 cp -ru kode-mono-fonts/fonts/variable/* mono-kode/
@@ -149,7 +149,7 @@ mv download/mono-kode/ out/mono-kode/
 rm -rf ./download/kode-mono-fonts/
 
 cd ~/.dotfiles/fonts/download/
-7z x mono-victor.zip -aoa -y -omono-victor-temp/
+7za x mono-victor.zip -aoa -y -omono-victor-temp/
 mkdir -p ~/.dotfiles/fonts/download/mono-victor
 cp -ru mono-victor-temp/OTF/* mono-victor/
 cp -ru mono-victor-temp/TTF/* mono-victor/
