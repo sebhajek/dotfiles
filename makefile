@@ -197,7 +197,7 @@ wezterm: setup fonts shell fish
 
 sway: wezterm
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
-	sudo dunst grim slurp rofi-wayland wl-clipboard ;
+	sudo dnf install -y dunst grim slurp rofi-wayland wl-clipboard ;
 	mkdir -p ~/.config/sway/config.d ;
 	mkdir -p ~/.config/swaylock ;
 	cp -ur ./sway/* ~/.config/sway/ ;
