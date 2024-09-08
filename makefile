@@ -1,4 +1,4 @@
-all: setup core env langs desktop
+all: setup utils shell libs langs
 	source ~/.bashrc
 
 setup: clean

@@ -22,7 +22,7 @@ ______________________________________________________________________
 ## Install
 
 ```bash
-sudo zypper in bash curl
+sudo dnf in -y curl bash
 curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash
 ```
 
