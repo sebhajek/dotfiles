@@ -53,7 +53,7 @@ c:
 	sudo dnf install -y gcc gdb make gcc-c++ gcc-fortran llvm15 llvm15-devel clang nasm ;
 
 fnl: lua
-	sudo dnf install -y fennel lua-5.1 lua-5.1-devel readline readline-devel compat-readline6 compat-readline6-devel lua-readline ;
+	sudo dnf install -y fennel compat-lua compat-lua-devel readline readline-devel compat-readline6 compat-readline6-devel lua-readline ;
 	mkdir -p ~/.fennel/ ;
 	touch ~/.fennel/.fennel-history ;
 	rm -f ~/.inputrc ;
@@ -62,7 +62,7 @@ fnl: lua
 	cp -fu ./fennel/.fennelrc ~/ ;
 
 lua:
-	sudo dnf install -y lua-5.1 lua-5.1-devel rlwrap luajit lua lua-devel ;
+	sudo dnf install -y compat-lua compat-lua-devel rlwrap luajit lua lua-devel ;
 	sudo dnt install -y luarocks love liblove ;
 
 go: shell
