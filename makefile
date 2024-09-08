@@ -1,4 +1,4 @@
-all: setup utils shell libs langs
+all: setup utils shell libs langs devenv
 	source ~/.bashrc
 
 setup: clean
@@ -130,14 +130,14 @@ scala: java shell
 devenv: nvim lazygit ranger
 	sudo dnf install -y htop fzf tealdeer cloc entr hyperfine jq ;
 
-nvim:
+nvim: lua c
 	sudo dnf install -y neovim ;
 	mkdir -p ~/.config/nvim ;
 	mkdir -p ~/.vim/colors ;
 	rm -rf ~/.config/nvim/* ;
 	cp -ru ./nvim/* ~/.config/nvim/ ;
 
-lazygit:
+lazygit: go
 	sudo dnf copr enable -y atim/lazygit ;
 	sudo dnf install -y lazygit	;
 	mkdir -p ~/.config/lazygit ;
@@ -147,6 +147,6 @@ lazygit:
 	cp -ru ./lazygit/* ~/.config/lazygit/ ;
 	cp -ru ./lazygit/* ~/.config/jesseduffield/lazygit/ ;
 
-ranger:
+ranger: python
 	sudo dnf install -y ranger ;
 	
