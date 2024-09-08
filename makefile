@@ -99,7 +99,8 @@ odin: c shell
 	mkdir -p ~/.odin/ ;
 	git clone https://github.com/odin-lang/Odin ~/.odin ;
 	sudo dnf copr enable -y @fedora-llvm-team/llvm18 ;
-	sudo dnf upgrade -y llvm llvm-devel clang;
+	sudo dnf install -y llvm llvm-devel clang ;
+	sudo dnf upgrade -y llvm llvm-devel clang ;
 	cd ~/.odin/ && make ;
 	cd ~/.odin/ && make release ;
 
@@ -120,7 +121,7 @@ scala: java shell
 	mkdir -p ~/.scala/cs/
 	cp -fu ./shell/alias/.sh_profile_scala ~/.shell/
 	cd ~/.scala/cs/
-	curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d >~/.scala/cs/cs && chmod +x ~/.scala/cs/cs && ~/.scala/cs/cs setup
+	curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d >~/.scala/cs/cs && chmod +x ~/.scala/cs/cs && ~/.scala/cs/cs setup --yes
 	export PATH="$PATH:/home/sebhajek/.local/share/coursier/bin"
 	cs install giter8
 	cs update g8
