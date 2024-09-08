@@ -1,2 +1,2 @@
 TECTONIC_PATH=$(readlink -f ~/.tectonic)
-export PATH = "$PATH:$TECTONIC_PATH"
+export PATH="$PATH:$TECTONIC_PATH"
