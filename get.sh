@@ -7,4 +7,4 @@ rm -rf ~/.dotfiles;
 mkdir -p ~/.dotfiles;
 git clone https://github.com/sebhajek/dotfiles.git ~/.dotfiles ;
 cd ~/.dotfiles ;
-make all -j3 ;
+make all;
