@@ -42,6 +42,7 @@ return {
 					'autotools_ls',
 					'bashls',
 					'typos_lsp',
+					'basedpyright',
 				},
 			}
 
@@ -79,6 +80,9 @@ return {
 						'makefile'
 					)(fname) or lspconfig.util.find_git_ancestor(fname)
 				end,
+			}
+			lspconfig.basedpyright.setup {
+				capabilities = capabilities,
 			}
 			lspconfig.harper_ls.setup {
 				['harper-ls'] = {
