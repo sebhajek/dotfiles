@@ -1,5 +1,4 @@
-local palette = require('palette')['oxoargon']
-
+local palette = require('palette').get_palette './oxoargon.csv'
 local CELL_SIZE = 16 * 4
 local TEXT_SIZE = 8 * 4
 local BORDER_SIZE = 8 * 4
@@ -60,9 +59,12 @@ local svg_wrap = function(fg_color, bg_color, ansi_colors)
 			.. svg_square(
 				CELL_SIZE,
 				CELL_SIZE,
-				((BORDER_SIZE + (k * BORDER_SIZE)) + (k * CELL_SIZE))
-					% (svg_width - BORDER_SIZE),
-				BORDER_SIZE + (math.floor(k / 8) * (BORDER_SIZE + CELL_SIZE)),
+				(
+					(BORDER_SIZE + ((k - 1) * BORDER_SIZE))
+					+ ((k - 1) * CELL_SIZE)
+				) % (svg_width - BORDER_SIZE),
+				BORDER_SIZE
+					+ (math.floor((k - 1) / 8) * (BORDER_SIZE + CELL_SIZE)),
 				v,
 				4
 			)
@@ -81,7 +83,8 @@ local main = function()
 	local svg_file = io.open('./palette.svg', 'w+')
 	io.output(svg_file)
 
-	local file_str = svg_wrap(palette['fg'], palette['bg'], palette['ansi'])
+	local file_str =
+		svg_wrap(palette['foreground'], palette['background'], palette['ansi'])
 	print(file_str)
 	io.write(file_str)
 	io.close(svg_file)
