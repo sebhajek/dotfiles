@@ -194,6 +194,7 @@ wezterm: setup fonts shell fish
 	cp -ru ./wezterm/* ~/.config/wezterm/ ;
 
 sway: wezterm python
+	mkdir -p ./i3status ;
 	python3 ./scripts/wm_colors.py ;
 	sudo dnf swap -y sway-config sway-config-minimal ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
