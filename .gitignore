@@ -2,4 +2,5 @@ wallpapers/
 .luarc.json
 wm/bar
 wm/colors
+rofi/confi.rasi
 i3status/config

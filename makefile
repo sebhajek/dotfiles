@@ -193,8 +193,13 @@ wezterm: setup fonts shell fish
 	rm -rf ~/.config/wezterm/* ;
 	cp -ru ./wezterm/* ~/.config/wezterm/ ;
 
-sway: wezterm python rofi
+wm_colors: python
 	mkdir -p ./i3status ;
+	mkdir -p ./rofi ;
+	mkdir -p ./wm ;
+	python3 ./scripts/wm_colors.py ;
+
+sway: wezterm wm_colors rofi
 	python3 ./scripts/wm_colors.py ;
 	sudo dnf swap -y sway-config sway-config-upstream ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
@@ -212,7 +217,7 @@ sway: wezterm python rofi
 	mkdir -p ~/.dotfiles/wallpapers/ ;
 	tar -xvzf ./wallpapers.tar.gz -C ~/.dotfiles/wallpapers/ ;
 
-rofi:	
+rofi: wm_colors
 	sudo dnf install -y rofi-wayland ;
 	mkdir -p ~/.config/rofi/
 	cp -ru ./rofi/* ~/.config/rofi/
