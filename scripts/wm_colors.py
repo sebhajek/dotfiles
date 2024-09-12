@@ -37,6 +37,59 @@ bar {
 """
 )
 
+status_template: string.Template = string.Template(
+    """
+general {
+\tcolors = true
+\tinterval = 16
+
+\tcolor_good = \"${BRIGHT_CYAN}\"
+\tcolor_degraded = \"${BRIGHT_WHITE}\"
+\tcolor_bad = \"${BRIGHT_RED}\"
+}
+
+order += "load"
+order += "wireless _first_"
+#order += "disk /"
+#order += "memory"
+order += "battery all"
+order += "tztime local"
+
+wireless _first_ {
+\tformat_up = "W: %quality @ %ip"
+\tformat_down = "W: 0% @ none"
+}
+
+battery all {
+\tinteger_battery_capacity = true
+\tstatus_chr = "CHR"
+\tstatus_bat = "BAT"
+\tstatus_unk = "UNK"
+\tstatus_full = "FUL"
+\tlow_threshold = 32
+\tformat = "%status %percentage"
+}
+
+disk "/" {
+\tformat = "%avail"
+}
+
+load {
+\tformat = "CPU: %1min"
+}
+
+memory {
+\tformat = "%used | %available"
+\tthreshold_degraded = "1G"
+\tformat_degraded = "MEMORY < %available"
+}
+
+tztime local {
+\tformat = "%H:%M :: %Y-%m-%d"
+}
+"""
+)
+
 colors: dict[str, str] = dict()
 
 with open("./palettes/oxoargon.csv", "r") as palette_csv:
@@ -49,3 +102,6 @@ with open("./wm/colors", "w") as wm_colors:
 
 with open("./wm/bar", "w") as wm_bar:
     _ = wm_bar.write(bar_template.safe_substitute(colors))
+
+with open("./i3status/config", "w") as wm_status:
+    _ = wm_status.write(status_template.safe_substitute(colors))
