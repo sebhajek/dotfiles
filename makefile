@@ -196,11 +196,13 @@ wezterm: setup fonts shell fish
 sway: wezterm python
 	mkdir -p ./i3status ;
 	python3 ./scripts/wm_colors.py ;
-	sudo dnf swap -y sway-config sway-config-minimal ;
+	sudo dnf swap -y sway-config sway-config-upstream ;;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
 	sudo dnf install -y dunst grim slurp rofi-wayland wl-clipboard ;
+	-sudo dnf remove -y foot waybar ;
+	sudo dnf autoremove -y ;
 	rm -rf ~/.config/sway/* ;
 	mkdir -p ~/.config/sway/config.d ;
 	-mkdir -p ~/.config/swaylock ;
