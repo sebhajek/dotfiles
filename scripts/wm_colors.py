@@ -16,6 +16,12 @@ client.background\t\t${BACKGROUND}
 bar_template: string.Template = string.Template(
     """
 bar {
+\tstatus_command i3status
+\tfont pango:Cozette, JuliaMono, mono Regular 9
+\tworkspace_buttons yes
+\tbinding_mode_indicator yes
+\t#padding 1px 1px 2px 1px
+
 \tcolors {
 \t\tbackground\t${BACKGROUND}
 \t\tstatusline\t${BRIGHT_MAGENTA}
@@ -39,6 +45,7 @@ with open("./palettes/oxoargon.csv", "r") as palette_csv:
         colors[values[0]] = values[4]
 
 with open("./wm/colors", "w") as wm_colors:
-    con = template.safe_substitute(colors) + "\n" + bar_template.safe_substitute(colors)
-    print(con)
-    _ = wm_colors.write(con)
+    _ = wm_colors.write(template.safe_substitute(colors))
+
+with open("./wm/bar", "w") as wm_bar:
+    _ = wm_bar.write(bar_template.safe_substitute(colors))
