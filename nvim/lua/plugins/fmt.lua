@@ -14,6 +14,7 @@ return {
 					'autoflake',
 					'isort',
 					'docformatter',
+					'black',
 				},
 			}
 		end,
@@ -47,7 +48,7 @@ return {
 					lsp_format_opt = 'fallback'
 				end
 				return {
-					timeout_ms = 500,
+					timeout_ms = 8000,
 					lsp_format = lsp_format_opt,
 				}
 			end,
@@ -55,12 +56,23 @@ return {
 				lua = { 'stylua' },
 				bash = { 'beautysh', 'shfmt' },
 				makefile = { 'injected' },
-				markdown = { 'injected', 'markdown-toc', 'mdformat', 'mdslw' },
+				markdown = { 'injected', 'markdown-toc', 'mdslw', 'mdformat' },
 				-- Conform can also run multiple formatters sequentially
-				python = { 'autopep8', 'docformatter', 'isort', 'autoflake' },
+				python = {
+					'autopep8',
+					'docformatter',
+					'isort',
+					'autoflake',
+					'black',
+				},
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+			formatters = {
+				black = {
+					prepend_args = { '--fast' },
+				},
 			},
 		},
 	},

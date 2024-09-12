@@ -42,6 +42,7 @@ return {
 					'autotools_ls',
 					'bashls',
 					'typos_lsp',
+					'ruff',
 					'basedpyright',
 				},
 			}
@@ -81,8 +82,18 @@ return {
 					)(fname) or lspconfig.util.find_git_ancestor(fname)
 				end,
 			}
-			lspconfig.basedpyright.setup {
+			lspconfig.ruff.setup {
 				capabilities = capabilities,
+			}
+			lspconfig.basedpyright.setup {
+				pyright = {
+					disableOrganizeImports = true,
+				},
+				basedpyright = {
+					analysis = {
+						typeCheckingMode = 'none',
+					},
+				},
 			}
 			lspconfig.harper_ls.setup {
 				['harper-ls'] = {
