@@ -178,7 +178,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts wezterm sway
+desktop: fonts wezterm sway rofi
 
 fonts: python shell
 	mkdir -p ~/.fonts/
@@ -193,14 +193,14 @@ wezterm: setup fonts shell fish
 	rm -rf ~/.config/wezterm/* ;
 	cp -ru ./wezterm/* ~/.config/wezterm/ ;
 
-sway: wezterm python
+sway: wezterm python rofi
 	mkdir -p ./i3status ;
 	python3 ./scripts/wm_colors.py ;
-	sudo dnf swap -y sway-config sway-config-upstream ;;
+	sudo dnf swap -y sway-config sway-config-upstream ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
-	sudo dnf install -y dunst grim slurp rofi-wayland wl-clipboard ;
+	sudo dnf install -y dunst grim slurp wl-clipboard ;
 	-sudo dnf remove -y foot waybar ;
 	sudo dnf autoremove -y ;
 	rm -rf ~/.config/sway/* ;
@@ -209,3 +209,10 @@ sway: wezterm python
 	cp -ur ./sway/* ~/.config/sway/ ;
 	cp -ur ./wm/* ~/.config/sway/config.d ;
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
+	mkdir -p ~/.dotfiles/wallpapers/ ;
+	tar -xvzf ./wallpapers.tar.gz -C ~/.dotfiles/wallpapers/ ;
+
+rofi:	
+	sudo dnf install -y rofi-wayland ;
+	mkdir -p ~/.config/rofi/
+	cp -ru ./rofi/* ~/.config/rofi/

@@ -1,11 +1,11 @@
 font pango: Cozette, JuliaMono, mono Regular 9
 
 # borders
-default_border normal 2
-default_floating_border normal 2
+default_border normal 1
+default_floating_border normal 1
 
 title_align center
 
-gaps inner 4px
-gaps outer 4px
+gaps inner 2px
+gaps outer 2px
 smart_gaps off
