@@ -111,21 +111,21 @@ configuration{
 \tlightbg:                     ${REGULAR_WHITE}FF;
 \tselected-active-foreground:  ${BRIGHT_BLACK}FF;
 \talternate-active-background: rgba ( 0, 0, 0, 0 % );
-\tbackground:                  ${BACKGROUND}88;
+\tbackground:                  ${BACKGROUND}E8;
 \tbordercolor:                 ${BACKGROUND}FF;
 \talternate-normal-foreground: @foreground;
-\tnormal-background:           ${REGULAR_MAGENTA}08;
+\tnormal-background:           ${REGULAR_MAGENTA}0B;
 \tlightfg:                     ${REGULAR_BLACK}FF;
 \tselected-normal-background:  ${BACKGROUND}FF;
 \tborder-color:                @bordercolor;
 \tspacing:                     1;
 \tseparatorcolor:              ${BRIGHT_MAGENTA}FF;
-\turgent-background:           ${BRIGHT_BLUE}08;
+\turgent-background:           ${BRIGHT_BLUE}0F;
 \tselected-urgent-background:  ${REGULAR_YELLOW}FF;
 \talternate-urgent-foreground: @urgent-foreground;
 \tbackground-color:            rgba ( 0, 0, 0, 0 % );
 \talternate-active-foreground: @active-foreground;
-\tactive-background:           ${BACKGROUND}08;
+\tactive-background:           ${BACKGROUND}0F;
 \tselected-active-background:  ${BRIGHT_WHITE}FF;
 }
 window {
