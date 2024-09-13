@@ -97,75 +97,145 @@ configuration{
 \tcombi-modes:[drun,run];
 }
 
-@theme "lb"
-
-configuration{
-\tfont:"Cozette 9";
-
-\tdrun{
-\t\tdisplay-name: ":drun";
-\t}
-
-\trun{
-\t\tdisplay-name: ":run";
-\t}
-
-\ttimeout{
-\t\tdelay: 10;
-\t\taction: "kb-cancel";
-\t}
+* {
+\tselected-normal-foreground:  ${BRIGHT_CYAN}FF;
+\tforeground:                  ${FOREGROUND}FF;
+\tnormal-foreground:           @foreground;
+\talternate-normal-background: rgba ( 0, 0, 0, 0 % );
+\tred:                         @{REGULAR_RED}FF;
+\tselected-urgent-foreground:  @{BRIGHT_RED}FF;
+\tblue:                        ${REGULAR_BLUE}FF;
+\turgent-foreground:           ${BRIGHT_YELLOW}FF;
+\talternate-urgent-background: rgba ( 0, 0, 0, 0 % );
+\tactive-foreground:           ${BRIGHT_GREEN}FF;
+\tlightbg:                     ${REGULAR_WHITE}FF;
+\tselected-active-foreground:  ${BRIGHT_BLACK}FF;
+\talternate-active-background: rgba ( 0, 0, 0, 0 % );
+\tbackground:                  ${BACKGROUND}88;
+\tbordercolor:                 ${BACKGROUND}FF;
+\talternate-normal-foreground: @foreground;
+\tnormal-background:           ${REGULAR_MAGENTA}08;
+\tlightfg:                     ${REGULAR_BLACK}FF;
+\tselected-normal-background:  ${BACKGROUND}FF;
+\tborder-color:                @bordercolor;
+\tspacing:                     1;
+\tseparatorcolor:              ${BRIGHT_MAGENTA}FF;
+\turgent-background:           ${BRIGHT_BLUE}08;
+\tselected-urgent-background:  ${REGULAR_YELLOW}FF;
+\talternate-urgent-foreground: @urgent-foreground;
+\tbackground-color:            rgba ( 0, 0, 0, 0 % );
+\talternate-active-foreground: @active-foreground;
+\tactive-background:           ${BACKGROUND}08;
+\tselected-active-background:  ${BRIGHT_WHITE}FF;
 }
-
-*{
-\tborder:0;
-\tmargin:0;
-\tpadding:2px;
-\tspacing:0;
-
-\tbg:${BACKGROUND};
-\tbg-alt:${REGULAR_BLACK};
-\tfg:${FOREGROUND};
-\tfg-alt:${BRIGHT_CYAN};
-
-\tbackground-color:@bg;
-\ttext-color:@fg;
-}
-
 window {
-\ttransparency:"real";
+\tbackground-color: @background;
+\tborder:           1;
+\tpadding:          3;
 }
-
 mainbox {
-\tchildren:[inputbar,listview];
+\tborder:  0;
+\tpadding: 0;
 }
-
-inputbar{
-\tchildren:[prompt,entry];
+message {
+\tborder:       1px 0px 0px ;
+\tborder-color: @separatorcolor;
+\tpadding:      1px ;
 }
-
-entry{
-\tpadding:4px 0;
+textbox {
+\ttext-color: @foreground;
 }
-
-prompt{
-\tpadding:4px;
+listview {
+\tfixed-height: 0;
+\tborder:       2px 0px 0px ;
+\tborder-color: @separatorcolor;
+\tspacing:      1px ;
+\tscrollbar:    true;
+\tpadding:      1px 0px 0px ;
 }
-
-listview{
-\tlines:8;
+element {
+\tborder:  0;
+\tpadding: 1px ;
 }
-
-element{
-\tchildren:[element-text];
+element-text {
+\tbackground-color: inherit;
+\ttext-color:       inherit;
 }
-
-element-text{
-\tpadding:2px;
-\ttext-color:@fg;
+element.normal.normal {
+\tbackground-color: @normal-background;
+\ttext-color:       @normal-foreground;
 }
-
-element-text selected{
-\ttext-color:@fg-alt;
+element.normal.urgent {
+\tbackground-color: @urgent-background;
+\ttext-color:       @urgent-foreground;
+}
+element.normal.active {
+\tbackground-color: @active-background;
+\ttext-color:       @active-foreground;
+}
+element.selected.normal {
+\tbackground-color: @selected-normal-background;
+\ttext-color:       @selected-normal-foreground;
+}
+element.selected.urgent {
+\tbackground-color: @selected-urgent-background;
+\ttext-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+\tbackground-color: @selected-active-background;
+\ttext-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+\tbackground-color: @alternate-normal-background;
+\ttext-color:       @alternate-normal-foreground;
+}
+element.alternate.urgent {
+\tbackground-color: @alternate-urgent-background;
+\ttext-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+\tbackground-color: @alternate-active-background;
+\ttext-color:       @alternate-active-foreground;
+}
+scrollbar {
+\twidth:        2px ;
+\tborder:       0;
+\thandle-width: 4px ;
+\tpadding:      0;
+}
+mode-switcher {
+\tborder:       1px 0px 0px ;
+\tborder-color: @separatorcolor;
+}
+button.selected {
+\tbackground-color: @selected-normal-background;
+\ttext-color:       @selected-normal-foreground;
+}
+inputbar {
+\tspacing:    0;
+\ttext-color: @normal-foreground;
+\tpadding:    1px ;
+}
+case-indicator {
+\tspacing:    0;
+\ttext-color: @normal-foreground;
+}
+entry {
+\tspacing:    0;
+\ttext-color: @normal-foreground;
+}
+prompt, button{
+\tspacing:    0;
+\ttext-color: @normal-foreground;
+}
+inputbar {
+\tchildren:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+\texpand:     false;
+\tstr:        ":";
+\tmargin:     0px 0.3em 0em 0em ;
+\ttext-color: @normal-foreground;
 }
 """
 )
