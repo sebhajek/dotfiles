@@ -1,0 +1,9 @@
+[BATTERY]
+command=~/.i3blocks/battery.lua
+interval=64
+markup=pango
+
+[TIMEDATE]
+command=~/.i3blocks/time.lua
+interval=8
+markup=pango

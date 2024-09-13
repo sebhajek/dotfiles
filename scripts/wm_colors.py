@@ -16,7 +16,7 @@ client.background\t\t${BACKGROUND}
 bar_template: string.Template = string.Template(
     """
 bar {
-\tstatus_command i3status
+\tstatus_command i3blocks
 \tfont pango:Cozette, JuliaMono, mono Regular 9
 \tworkspace_buttons yes
 \tbinding_mode_indicator yes
@@ -247,6 +247,8 @@ with open("./palettes/oxoargon.csv", "r") as palette_csv:
         values = line.strip().split(",")
         colors[values[0]] = values[4]
 
+# GENERATING FILES FOR i3
+
 with open("./wm/colors", "w") as wm_colors:
     _ = wm_colors.write(template.safe_substitute(colors))
 
@@ -258,3 +260,12 @@ with open("./i3status/config", "w") as wm_status:
 
 with open("./rofi/config.rasi", "w") as rofi_config:
     _ = rofi_config.write(rofi_template.safe_substitute(colors))
+
+# GENERATING LUA FILE WITH COLORS
+
+lua_table: str = "return {\n"
+for key in colors:
+    lua_table = lua_table + "\t['" + key + "'] = '" + colors[key] + "',\n"
+lua_table = lua_table + "}"
+with open("./i3blocks/scripts/colors.lua", "w") as lua_file:
+    _ = lua_file.write(lua_table)

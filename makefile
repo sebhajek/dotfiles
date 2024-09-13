@@ -199,7 +199,7 @@ wm_colors: python
 	mkdir -p ./wm ;
 	python3 ./scripts/wm_colors.py ;
 
-sway: wezterm wm_colors rofi
+sway: wezterm wm_colors rofi i3blocks
 	python3 ./scripts/wm_colors.py ;
 	sudo dnf swap -y sway-config sway-config-upstream ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
@@ -219,5 +219,12 @@ sway: wezterm wm_colors rofi
 
 rofi: wm_colors
 	sudo dnf install -y rofi-wayland ;
-	mkdir -p ~/.config/rofi/
-	cp -ru ./rofi/* ~/.config/rofi/
+	mkdir -p ~/.config/rofi/ ;
+	cp -ru ./rofi/* ~/.config/rofi/ ;
+
+i3blocks: wm_colors python
+	sudo dnf install -y i3blocks acpi ;
+	mkdir -p ~/.config/i3blocks/ ;
+	mkdir -p ~/.i3blocks/ ;
+	cp -fu ./i3blocks/scripts/* ~/.i3blocks/ ;
+	cp -fu ./i3blocks/config ~/.config/i3blocks/ ;
