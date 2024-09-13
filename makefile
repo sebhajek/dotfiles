@@ -104,7 +104,7 @@ odin: c shell
 	cp -fu ./shell/alias/config_odin.fish ~/.config/fish/conf.d/ ;
 	rm -rf ~/.odin ;
 	mkdir -p ~/.odin/ ;
-	git clone https://github.com/odin-lang/Odin ~/.odin ;
+	git clone --depth 1 https://github.com/odin-lang/Odin ~/.odin ;
 	sudo dnf copr enable -y @fedora-llvm-team/llvm18 ;
 	sudo dnf install -y llvm llvm-devel clang ;
 	sudo dnf upgrade -y llvm llvm-devel clang ;
