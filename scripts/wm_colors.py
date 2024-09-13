@@ -102,8 +102,8 @@ configuration{
 \tforeground:                  ${FOREGROUND}FF;
 \tnormal-foreground:           @foreground;
 \talternate-normal-background: rgba ( 0, 0, 0, 0 % );
-\tred:                         @{REGULAR_RED}FF;
-\tselected-urgent-foreground:  @{BRIGHT_RED}FF;
+\tred:                         ${REGULAR_RED}FF;
+\tselected-urgent-foreground:  ${BRIGHT_RED}FF;
 \tblue:                        ${REGULAR_BLUE}FF;
 \turgent-foreground:           ${BRIGHT_YELLOW}FF;
 \talternate-urgent-background: rgba ( 0, 0, 0, 0 % );
