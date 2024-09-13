@@ -224,7 +224,5 @@ rofi: wm_colors
 
 i3blocks: wm_colors python
 	sudo dnf install -y i3blocks acpi ;
-	mkdir -p ~/.config/i3blocks/ ;
-	mkdir -p ~/.i3blocks/ ;
-	cp -fu ./i3blocks/scripts/* ~/.i3blocks/ ;
-	cp -fu ./i3blocks/config ~/.config/i3blocks/ ;
+	mkdir -p ~/.config/i3blocks/scripts ;
+	cp -rfu ./i3blocks/* ~/.config/i3blocks/ ;
