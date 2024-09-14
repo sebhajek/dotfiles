@@ -23,7 +23,7 @@ if time_n >= daylight and time_n <= nightlight then
 else
 	output = output .. '<span foreground="' .. colors.BRIGHT_MAGENTA .. '">'
 end
-output = output .. time .. '</span>'
+output = output .. time .. '</span> '
 
 print(output)
 

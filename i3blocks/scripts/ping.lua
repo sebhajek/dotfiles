@@ -94,7 +94,11 @@ if localhost_handle and dns_handle and internet_handle then
 				.. colors.REGULAR_MAGENTA
 				.. '">'
 		end
-		output = output .. 'PING:' .. tostring(internet_t.avg_ping) .. '</span>'
+		local avg_ping_str = tostring(math.ceil(internet_t.avg_ping))
+		while #avg_ping_str < 4 do
+			avg_ping_str = ' ' .. avg_ping_str
+		end
+		output = output .. 'PING:' .. avg_ping_str .. '</span>'
 	end
 else
 	output = output .. 'PING ERR!'
