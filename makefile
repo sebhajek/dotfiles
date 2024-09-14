@@ -3,15 +3,15 @@ SHELL := /bin/bash
 all: setup headless desktop
 	source ~/.bashrc
 
-headless: utils shell libs langs devenv power
+headless: utils shell power libs langs devenv 
 	source ~/.bashrc
 
 power:
 	sudo dnf install -y tlp tlp-rdw ;
 	-sudo dnf remove -y power-profiles-daemon ;
 	-sudo dnf autoremove -y ;
-	systemctl enable tlp.service ;
-	-systemctl mask systemd-rfkill.service systemd-rfkill.socket ;
+	sudo systemctl enable tlp.service ;
+	-sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket ;
 	sudo tlp start;
 
 setup: clean
