@@ -3,6 +3,11 @@ command=~/.config/i3blocks/scripts/ping.lua
 interval=256
 markup=pango
 
+[NET]
+command=~/.config/i3blocks/scripts/network.lua
+interval=48
+markup=pango
+
 [BATTERY]
 command=~/.config/i3blocks/scripts/battery.lua
 interval=64

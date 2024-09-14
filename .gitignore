@@ -4,3 +4,5 @@ wm/bar
 wm/colors
 rofi/confi.rasi
 i3status/config
+i3blocks/scripts/colors.lua
+rofi/config.rasi

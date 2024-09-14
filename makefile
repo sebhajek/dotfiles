@@ -232,8 +232,9 @@ rofi: wm_colors
 	cp -ru ./rofi/* ~/.config/rofi/ ;
 
 i3blocks: wm_colors python
-	sudo dnf install -y i3blocks acpi ;
+	sudo dnf install -y i3blocks acpi nmcli ;
 	mkdir -p ~/.config/i3blocks/scripts ;
+	chmod +x ./i3blocks/scripts/* ;
 	cp -rfu ./i3blocks/* ~/.config/i3blocks/ ;
 
 codecs:
