@@ -5,8 +5,11 @@ FEDORA_VER ?= 40
 all: setup headless desktop
 	source ~/.bashrc
 
-headless: utils shell power libs langs devenv 
+headless: utils shell power libs langs devenv network
 	source ~/.bashrc
+
+network:
+	sudo dnf install -y NetworkManager NetworkManager-bluetooth NetworkManager-wifi ;
 
 power:
 	sudo dnf install -y tlp tlp-rdw ;
@@ -188,6 +191,7 @@ graphviz: latex
 
 
 desktop: fonts codecs wezterm sway rofi
+	sudo dnf install -y network-manager-applet ;
 
 fonts: python shell
 	mkdir -p ~/.fonts/
@@ -232,7 +236,7 @@ rofi: wm_colors
 	cp -ru ./rofi/* ~/.config/rofi/ ;
 
 i3blocks: wm_colors python
-	sudo dnf install -y i3blocks acpi nmcli ;
+	sudo dnf install -y i3blocks acpi ;
 	mkdir -p ~/.config/i3blocks/scripts ;
 	chmod +x ./i3blocks/scripts/* ;
 	cp -rfu ./i3blocks/* ~/.config/i3blocks/ ;
