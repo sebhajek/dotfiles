@@ -1,9 +1,14 @@
 [BATTERY]
-command=~/.i3blocks/battery.lua
+command=~/.config/i3blocks/scripts/battery.lua
 interval=64
 markup=pango
 
 [TIMEDATE]
-command=~/.i3blocks/time.lua
+command=~/.config/i3blocks/scripts/time.lua
 interval=8
+markup=pango
+
+[PING]
+command=~/.config/i3blocks/scripts/ping.lua
+interval=256
 markup=pango

@@ -1,6 +1,6 @@
 #!/usr/bin/env luajit
 
-local colors = require 'colors'
+local colors = require 'scripts.colors'
 local output = ' '
 local exit_code = 0
 
