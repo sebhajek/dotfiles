@@ -185,7 +185,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts wezterm sway rofi
+desktop: fonts codecs wezterm sway rofi
 
 fonts: python shell
 	mkdir -p ~/.fonts/
@@ -233,3 +233,15 @@ i3blocks: wm_colors python
 	sudo dnf install -y i3blocks acpi ;
 	mkdir -p ~/.config/i3blocks/scripts ;
 	cp -rfu ./i3blocks/* ~/.config/i3blocks/ ;
+
+codecs:
+	-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm ;
+	sudo dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted ;
+	-sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
+	-sudo dnf install -y gstreamer1-plugins-{bad-*,good-*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
+	-sudo dnf install -y lame* --exclude=lame-devel ;
+	-sudo dnf install ffmpeg ffmpeg-devel ;
+	sudo dnf group upgrade -y --with-optional --allowerasing --skip-broken Multimedia ;
+
+firefox: codecs
+	sudo dnf install -y firefox ;
