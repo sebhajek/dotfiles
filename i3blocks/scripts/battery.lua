@@ -82,10 +82,14 @@ if handle == nil then
 else
 	local batteries = parse_battery_info(handle)
 	local battery_outs = stringify_battery_info(batteries)
-	for _, outs in ipairs(battery_outs) do
-		output = output .. ' ' .. outs
+	if #battery_outs <= 0 then
+		output = ''
+	else
+		for _, outs in ipairs(battery_outs) do
+			output = output .. ' ' .. outs
+		end
+		output = output .. ' '
 	end
-	output = output .. ' '
 	handle:close()
 end
 

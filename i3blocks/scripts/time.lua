@@ -5,8 +5,26 @@ local output = ' '
 local exit_code = 0
 
 local time_t = os.date '*t'
-local date = time_t.year .. '-' .. time_t.month .. '-' .. time_t.day
-local time = time_t.hour .. ':' .. time_t.min
+
+---@param str string
+---@param n number
+---@return string
+local pad_with_zero = function(str, n)
+	while #str < n do
+		str = '0' .. str
+	end
+	return str
+end
+
+local date = time_t.year
+	.. '-'
+	.. pad_with_zero(tostring(time_t.month), 2)
+	.. '-'
+	.. pad_with_zero(tostring(time_t.day), 2)
+local time = pad_with_zero(tostring(time_t.hour), 2)
+	.. ':'
+	.. pad_with_zero(tostring(time_t.min), 2)
+
 local time_n = time_t.hour + (time_t.min / 60)
 
 output = output
