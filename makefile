@@ -11,7 +11,7 @@ power:
 	-sudo dnf remove -y power-profiles-daemon ;
 	-sudo dnf autoremove -y ;
 	systemctl enable tlp.service ;
- 	-systemctl mask systemd-rfkill.service systemd-rfkill.socket ;
+	-systemctl mask systemd-rfkill.service systemd-rfkill.socket ;
 	sudo tlp start;
 
 setup: clean
