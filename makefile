@@ -235,8 +235,9 @@ i3blocks: wm_colors python
 	cp -rfu ./i3blocks/* ~/.config/i3blocks/ ;
 
 codecs:
-	-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm ;
-	sudo dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted ;
+	-sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm ;
+	-sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm ;
+	-sudo dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted ;
 	-sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
 	-sudo dnf install -y gstreamer1-plugins-{bad-*,good-*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
 	-sudo dnf install -y lame* --exclude=lame-devel ;
