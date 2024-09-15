@@ -105,7 +105,3 @@ bindsym $mod+n mode "focus"
 bindsym $mod+b mode "resize"
 bindsym $mod+v mode "layout"
 
-input * {
-    xkb_layout "us,cz"
-    xkb_options "grp:win_space_toggle"
-}
