@@ -3,13 +3,12 @@ FEDORA_VER ?= $(shell rpm -E %fedora)
 FEDORA_VER ?= 40 
 
 all: setup headless desktop
-	source ~/.bashrc
+	source ~/.bashrc ;
 
-headless: utils shell power libs langs devenv network
-	source ~/.bashrc
-
-network:
+headless: utils shell power libs langs devenv
+	source ~/.bashrc ;
 	sudo dnf install -y NetworkManager NetworkManager-bluetooth NetworkManager-wifi ;
+	sudo dnf group install -y "Common NetworkManager Submodules" "Core" "Dial-up Networking Support" "Hardware Support" "Standard" ;
 
 power:
 	sudo dnf install -y tlp tlp-rdw ;
@@ -192,11 +191,14 @@ graphviz: latex
 
 desktop: fonts codecs wezterm sway rofi i3wm
 	sudo dnf install -y network-manager-applet ;
+	sudo dnf groupinstall -y "Input Methods" "Multimedia" "Printing Support" ;
+
 
 fonts: python shell
 	mkdir -p ~/.fonts/
 	bash ./scripts/install/fonts.sh ; 
 	sudo dnf install -y xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi xorg-x11-fonts-ISO8859-14-100dpi xorg-x11-fonts-ISO8859-14-75dpi xorg-x11-fonts-ISO8859-15-100dpi xorg-x11-fonts-ISO8859-15-75dpi xorg-x11-fonts-ISO8859-2-100dpi xorg-x11-fonts-ISO8859-2-75dpi xorg-x11-fonts-ISO8859-9-100dpi xorg-x11-fonts-ISO8859-9-75dpi xorg-x11-fonts-Type1 xorg-x11-fonts-cyrillic xorg-x11-fonts-misc ;
+	sudo dnf groupinstall -y "Fonts" ;
 	fc-cache -fv && sudo fc-cache -f /usr/share/fonts/ ;
 
 wezterm: setup fonts shell fish
@@ -231,7 +233,8 @@ i3wm: wezterm wm_colors rofi i3blocks wallpapers
 	sudo dnf swap -y i3-config i3-config ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
-	sudo dnf install -y xorg-x11-drivers xorg-x11-xinit xorg-x11-server-Xorg ;
+	sudo dnf install -y xorg-x11-drivers xorg-x11-xinit xorg-x11-server-Xorg xterm ;
+	sudo dnf groupinstall -y "base-x" ;
 	sudo dnf install -y i3-gaps i3status i3lock feh ;
 	sudo dnf install -y dunst maim xclip rofi-wayland ;
 	-sudo dnf remove -y rxvt-unicode ;
