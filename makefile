@@ -230,7 +230,7 @@ sway: wezterm wm_colors rofi i3blocks wallpapers
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
 
 i3wm: wezterm wm_colors rofi i3blocks wallpapers
-	sudo dnf swap -y i3-config i3-config ;
+	sudo dnf swap -y i3-config i3-config --allowerasing ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y xorg-x11-drivers xorg-x11-xinit xorg-x11-server-Xorg xterm ;
