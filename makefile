@@ -189,7 +189,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts codecs wezterm sway rofi i3wm
+desktop: fonts codecs wezterm sway rofi i3wm remove_defaults
 	sudo dnf install -y network-manager-applet ;
 	sudo dnf groupinstall -y "Input Methods" "Multimedia" "Printing Support" ;
 
@@ -245,6 +245,9 @@ i3wm: wezterm wm_colors rofi i3blocks wallpapers
 	cp -ur ./i3wm/* ~/.config/i3/ ;
 	cp -ur ./wm/* ~/.config/i3/config.d ;
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
+
+remove_defaults: i3wm sway
+	-sudo dnf remove -y mousepad azote dmenu thunar ;
 
 wallpapers:
 	mkdir -p ~/.dotfiles/wallpapers/ ;
