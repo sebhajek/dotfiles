@@ -234,6 +234,8 @@ greetd: sway
 	sudo dnf install -y greetd greetd-selinux tuigreet;
 	sudo systemctl enable greetd.service ;
 	sudo cp -rfu ./greetd/* /etc/greetd/ ;
+	sudo systemctl disable sddm.service	;
+	-sudo dnf remove -y sddm ;
 
 wallpapers:
 	mkdir -p ~/.dotfiles/wallpapers/ ;
