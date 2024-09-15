@@ -189,7 +189,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts codecs wezterm sway rofi i3wm remove_defaults
+desktop: fonts codecs wezterm sway rofi
 	sudo dnf install -y network-manager-applet ;
 	sudo dnf groupinstall -y "Input Methods" "Multimedia" "Printing Support" ;
 
@@ -215,11 +215,11 @@ wm_colors: python
 	python3 ./scripts/wm_colors.py ;
 
 sway: wezterm wm_colors rofi i3blocks wallpapers
-	sudo dnf swap -y sway-config sway-config-upstream ;
+	sudo dnf swap -y sway-config sway-config-upstream --allowerasing;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
-	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
-	sudo dnf install -y dunst grim slurp wl-clipboard ;
+	sudo dnf install -y sway swayidle swaylock swaybg i3status  ;
+	sudo dnf install -y dunst grim slurp wl-clipboard kanshi ;
 	-sudo dnf remove -y foot waybar ;
 	sudo dnf autoremove -y ;
 	rm -rf ~/.config/sway/* ;
@@ -228,26 +228,10 @@ sway: wezterm wm_colors rofi i3blocks wallpapers
 	cp -ur ./sway/* ~/.config/sway/ ;
 	cp -ur ./wm/* ~/.config/sway/config.d ;
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
-
-i3wm: wezterm wm_colors rofi i3blocks wallpapers
-	sudo dnf swap -y i3-config i3-config --allowerasing ;
-	sudo dnf install -y pipewire-pulseaudio pipewire ;
-	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
-	sudo dnf install -y xorg-x11-drivers xorg-x11-xinit xorg-x11-server-Xorg xterm ;
-	sudo dnf groupinstall -y "base-x" ;
-	sudo dnf install -y i3-gaps i3status i3lock feh ;
-	sudo dnf install -y dunst maim xclip rofi-wayland ;
-	-sudo dnf remove -y rxvt-unicode ;
-	sudo dnf autoremove -y ;
-	rm -rf ~/.config/i3/* ;
-	mkdir -p ~/.config/i3/config.d ;
-	-mkdir -p ~/.config/i3lock ;
-	cp -ur ./i3wm/* ~/.config/i3/ ;
-	cp -ur ./wm/* ~/.config/i3/config.d ;
-	-cp -ur ./wmlock/* ~/.config/swaylock ;
-
-remove_defaults: i3wm sway
-	-sudo dnf remove -y mousepad azote dmenu thunar ;
+	-sudo dnf remove -y waybar thunar foot;
+	
+greetd:
+	sudo dnf install -y greetd tuigreet;
 
 wallpapers:
 	mkdir -p ~/.dotfiles/wallpapers/ ;
@@ -271,8 +255,8 @@ codecs:
 	-sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
 	-sudo dnf install -y gstreamer1-plugins-{bad-*,good-*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ;
 	-sudo dnf install -y lame* --exclude=lame-devel ;
-	-sudo dnf install ffmpeg ffmpeg-devel --allowerasing --skip-broken ;
-	-sudo dnf group upgrade -y --with-optional --allowerasing --skip-broken Multimedia ;
+	-sudo dnf install ffmpeg ffmpeg-devel --allowerasing ;
+	-sudo dnf group upgrade -y --with-optional --allowerasing Multimedia ;
 
 firefox: codecs
 	sudo dnf install -y firefox ;
