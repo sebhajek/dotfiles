@@ -233,7 +233,7 @@ sway: wezterm wm_colors rofi i3blocks wallpapers
 greetd: sway
 	sudo dnf install -y greetd greetd-selinux tuigreet;
 	sudo cp -rfu ./greetd/* /etc/greetd/ ;
-	sudo systemctl disable sddm.service	;
+	-sudo systemctl disable sddm.service	;
 	sudo systemctl enable greetd.service ;
 	-sudo useradd -r -s /sbin/nologin greeter ;
 	-sudo chmod -R go+r /etc/greetd/ ;
