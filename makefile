@@ -189,7 +189,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts codecs wezterm sway rofi
+desktop: fonts codecs wezterm sway rofi greetd
 	sudo dnf install -y network-manager-applet ;
 	sudo dnf groupinstall -y "Input Methods" "Multimedia" "Printing Support" ;
 
@@ -230,8 +230,10 @@ sway: wezterm wm_colors rofi i3blocks wallpapers
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
 	-sudo dnf remove -y waybar thunar foot;
 	
-greetd:
-	sudo dnf install -y greetd tuigreet;
+greetd: sway
+	sudo dnf install -y greetd greetd-selinux tuigreet;
+	sudo systemctl enable greetd.service ;
+	sudo cp -rfu ./greetd/* /etc/greetd/ ;
 
 wallpapers:
 	mkdir -p ~/.dotfiles/wallpapers/ ;
