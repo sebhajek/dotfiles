@@ -235,6 +235,8 @@ greetd: sway
 	sudo cp -rfu ./greetd/* /etc/greetd/ ;
 	sudo systemctl disable sddm.service	;
 	sudo systemctl enable greetd.service ;
+	-sudo useradd -r -s /sbin/nologin greeter ;
+	-sudo chmod -R go+r /etc/greetd/ ;
 	-sudo dnf remove -y sddm ;
 
 wallpapers:

@@ -6,4 +6,4 @@ set $up k
 set $right l
 
 set $term wezterm
-set $dmenu rofi -show combi -modes combi -combi-modes "drun,run"
+set $dmenu rofi -show combi -modes combi -combi-modes "drun,run" -terminal $term
