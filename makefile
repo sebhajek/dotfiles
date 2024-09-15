@@ -217,7 +217,7 @@ sway: wezterm wm_colors rofi i3blocks wallpapers
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
-	sudo dnf install -y dunst grim slurp wl-clipboard setxkblayout ;
+	sudo dnf install -y dunst grim slurp wl-clipboard ;
 	-sudo dnf remove -y foot waybar ;
 	sudo dnf autoremove -y ;
 	rm -rf ~/.config/sway/* ;
