@@ -238,7 +238,7 @@ i3wm: wezterm wm_colors rofi i3blocks wallpapers
 	rm -rf ~/.config/i3/* ;
 	mkdir -p ~/.config/i3/config.d ;
 	-mkdir -p ~/.config/i3lock ;
-	cp -ur ./i3/* ~/.config/i3/ ;
+	cp -ur ./i3wm/* ~/.config/i3/ ;
 	cp -ur ./wm/* ~/.config/i3/config.d ;
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
 
