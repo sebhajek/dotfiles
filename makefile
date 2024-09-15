@@ -190,7 +190,7 @@ graphviz: latex
 	sudo dnf install -y graphviz;
 
 
-desktop: fonts codecs wezterm sway rofi
+desktop: fonts codecs wezterm sway rofi i3wm
 	sudo dnf install -y network-manager-applet ;
 
 fonts: python shell
@@ -212,13 +212,12 @@ wm_colors: python
 	mkdir -p ./wm ;
 	python3 ./scripts/wm_colors.py ;
 
-sway: wezterm wm_colors rofi i3blocks
-	python3 ./scripts/wm_colors.py ;
+sway: wezterm wm_colors rofi i3blocks wallpapers
 	sudo dnf swap -y sway-config sway-config-upstream ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
 	sudo dnf install -y sway swayidle swaylock swaybg i3status ;
-	sudo dnf install -y dunst grim slurp wl-clipboard ;
+	sudo dnf install -y dunst grim slurp wl-clipboard setxkblayout ;
 	-sudo dnf remove -y foot waybar ;
 	sudo dnf autoremove -y ;
 	rm -rf ~/.config/sway/* ;
@@ -227,6 +226,23 @@ sway: wezterm wm_colors rofi i3blocks
 	cp -ur ./sway/* ~/.config/sway/ ;
 	cp -ur ./wm/* ~/.config/sway/config.d ;
 	-cp -ur ./wmlock/* ~/.config/swaylock ;
+
+i3wm: wezterm wm_colors rofi i3blocks wallpapers
+	sudo dnf swap -y i3-config i3-config ;
+	sudo dnf install -y pipewire-pulseaudio pipewire ;
+	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
+	sudo dnf install -y i3-gaps i3status i3lock feh ;
+	sudo dnf install -y dunst maim xclip rofi-wayland ;
+	-sudo dnf remove -y rxvt-unicode ;
+	sudo dnf autoremove -y ;
+	rm -rf ~/.config/i3/* ;
+	mkdir -p ~/.config/i3/config.d ;
+	-mkdir -p ~/.config/i3lock ;
+	cp -ur ./i3/* ~/.config/i3/ ;
+	cp -ur ./wm/* ~/.config/i3/config.d ;
+	-cp -ur ./wmlock/* ~/.config/swaylock ;
+
+wallpapers:
 	mkdir -p ~/.dotfiles/wallpapers/ ;
 	tar -xvzf ./wallpapers.tar.gz -C ~/.dotfiles/wallpapers/ ;
 

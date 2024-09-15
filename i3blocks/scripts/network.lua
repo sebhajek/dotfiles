@@ -62,7 +62,7 @@ if #devices > 0 then
 			.. colors.FOREGROUND
 			.. '">'
 			.. value.device
-			.. '</span>'
+			.. '</span> '
 	end
 	if #con_wifi > 0 then
 		for _, value in pairs(con_wifi) do
