@@ -231,6 +231,7 @@ i3wm: wezterm wm_colors rofi i3blocks wallpapers
 	sudo dnf swap -y i3-config i3-config ;
 	sudo dnf install -y pipewire-pulseaudio pipewire ;
 	-systemctl --user pipewire-pulse.service pipewire-pulse.socket ;
+	sudo dnf install -y xorg-x11-drivers xorg-x11-xinit xorg-x11-server-Xorg ;
 	sudo dnf install -y i3-gaps i3status i3lock feh ;
 	sudo dnf install -y dunst maim xclip rofi-wayland ;
 	-sudo dnf remove -y rxvt-unicode ;
