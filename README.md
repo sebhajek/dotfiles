@@ -33,7 +33,7 @@ curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash
 #### Neovim
 
 Current Neovim configuration is done in a way where it supports tree-sitter,
-telescope, C, Lua, Markdown, Latex, Bash, formatting for those languages and LSP
+telescope, C, Lua, Markdown, Latex, Bash, Python, formatting for those languages and LSP
 for those languages.
 The color-scheme is also trying to be compatible with 16 ANSI colors to not be
 particularly environment dependent.
