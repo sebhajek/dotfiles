@@ -15,6 +15,10 @@ return {
 					'isort',
 					'docformatter',
 					'black',
+					'clang-format',
+					'prettier',
+					'sql-formatter',
+					'xmlformatter',
 				},
 			}
 		end,
@@ -22,7 +26,7 @@ return {
 	},
 	{ -- Autoformat
 		'stevearc/conform.nvim',
-		event = { 'BufWritePre' },
+		event = { 'BufWritePre', 'BufReadPre', 'BufNewFile' },
 		cmd = { 'ConformInfo' },
 		keys = {
 			{
@@ -56,7 +60,12 @@ return {
 				lua = { 'stylua' },
 				bash = { 'beautysh', 'shfmt' },
 				makefile = { 'injected' },
-				markdown = { 'injected', 'markdown-toc', 'mdslw', 'mdformat' },
+				markdown = {
+					'injected',
+					'markdown-toc',
+					--"mdslw",
+					'mdformat',
+				},
 				-- Conform can also run multiple formatters sequentially
 				python = {
 					'autopep8',
@@ -65,13 +74,78 @@ return {
 					'autoflake',
 					'black',
 				},
-				--
+				c = {
+					'custom-clang-format',
+					'clang-format',
+					stop_after_first = true,
+				},
+				cpp = {
+					'custom-clang-format',
+					'clang-format',
+					stop_after_first = true,
+				},
+				html = { 'prettier', stop_after_first = true },
+				javascript = { 'prettier', stop_after_first = true },
+				css = { 'prettier', stop_after_first = true },
+				json = { 'prettier', stop_after_first = true },
+				less = { 'prettier', stop_after_first = true },
+				xml = { 'xmlformat' },
+				sql = { 'custom-sql-formatter' },
+				java = {
+					'custom-clang-format',
+					'clang-format',
+					stop_after_first = true,
+				},
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 			formatters = {
-				black = {
+				['black'] = {
 					prepend_args = { '--fast' },
+				},
+				['custom-clang-format'] = {
+					command = 'clang-format',
+					args = '-style="{BasedOnStyle: llvm, IndentWidth: 4, UseTab: Always, TabWidth: 4, BreakBeforeBraces: Custom, BraceWrapping: { AfterClass: true, AfterControlStatement: false, AfterFunction: true, AfterNamespace: true, AfterStruct: true, BeforeElse: false, BeforeCatch: false, IndentBraces: false }, AlwaysBreakAfterReturnType: All, ColumnLimit: 160, AlignConsecutiveDeclarations: true, AlignConsecutiveAssignments: true}"',
+				},
+				['clang-format'] = {
+					prepend_args = { '-style=gnu' },
+				},
+				['prettier'] = {
+					prepend_args = {
+						'--use-tabs',
+						'--tab-width=4',
+						'--quote-props=consistent',
+						'--single-attribute-per-line',
+					},
+					args = function(self, ctx)
+						if string.match(ctx.filename, '%.html$') then
+							return {
+								'--stdin-filepath',
+								'$FILENAME',
+								'--parser',
+								'html',
+							}
+						end
+						return { '--stdin-filepath', '$FILENAME' }
+					end,
+					ft_parsers = {
+						javascript = 'babel',
+						css = 'css',
+						less = 'less',
+						html = 'html',
+						json = 'json',
+						jsonc = 'json',
+						yaml = 'yaml',
+						markdown = 'markdown',
+					},
+				},
+				['custom-sql-formatter'] = {
+					command = 'sql-formatter',
+					args = {
+						'',
+						'-c{"tabWidth":8,"useTabs":"true","keywordCase":"upper","dataTypeCase":"upper","functionCase":"upper","identifierCase":"preserve" ,"linesBetweenQueries":2,"expressionWidth":48,"newlineBeforeSemicolon":"false"}',
+						'-lmariadb',
+					},
 				},
 			},
 		},

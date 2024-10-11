@@ -44,6 +44,8 @@ return {
 					'typos_lsp',
 					'ruff',
 					'basedpyright',
+					'html',
+					'jdtls',
 				},
 			}
 
@@ -51,6 +53,9 @@ return {
 
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+			lspconfig.jdtls.setup {
+				capabilities = capabilities,
+			}
 			lspconfig.lua_ls.setup {
 				capabilities = capabilities,
 			}
@@ -64,6 +69,9 @@ return {
 				capabilities = capabilities,
 			}
 			lspconfig.clangd.setup {
+				capabilities = capabilities,
+			}
+			lspconfig.html.setup {
 				capabilities = capabilities,
 			}
 			lspconfig.vimls.setup {}
