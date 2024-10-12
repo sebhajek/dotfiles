@@ -114,9 +114,7 @@ def get_list_of_csv(dir: str) -> list[str]:
     return result
 
 
-def create_svg_of_palette(
-    palette: list[Color],
-) -> str:
+def create_svg_of_palette(palette: list[Color], name: str) -> str:
     d_palette: dict[int, Color] = dict()
     for c in palette:
         d_palette[c.ansi_code] = c
@@ -150,8 +148,8 @@ def create_svg_of_palette(
         svg_content = (
             "<style>.small { font: bold "
             + str(TEXT_SIZE)
-            + "px mono; fill: "
-            + palette[15].hex
+            + "px sans; fill: "
+            + palette[7].hex
             + ";}</style>"
         )
 
@@ -165,7 +163,9 @@ def create_svg_of_palette(
             + str(BORDER_SIZE)
             + '" y="'
             + str(TEXT_SIZE // 1)
-            + '" class="small">FOREGROUND</text>'
+            + '" class="small">'
+            + name
+            + "</text>"
         )
 
         for i in range(0, 16):
@@ -227,12 +227,15 @@ def main():
     print(palettes_list)
 
     svg_files: list[str] = []
+    palettes_list.sort()
     for p in palettes_list:
-        svg_to_write = create_svg_of_palette(p[1])
         if p[0].endswith(".csv"):
             svg_path = p[0].replace(".csv", ".svg")
         else:
             svg_path = p[0].replace(".json", ".svg")
+        svg_to_write = create_svg_of_palette(
+            p[1], os.path.basename(svg_path).replace(".svg", "")
+        )
         with open(svg_path, "w") as file:
             _ = file.write(svg_to_write)
             svg_files.append(svg_path)
