@@ -1,3 +1,4 @@
+import json
 import os
 from math import floor
 
@@ -58,6 +59,43 @@ def parse_color_from_csv(path_to_csv: str) -> list[Color]:
     return result
 
 
+def parse_color_from_json(path_to_json: str) -> list[Color]:
+    path_to_json = os.path.abspath(path_to_json)
+    print(path_to_json)
+    result: list[Color] = list()
+    deser_json: dict[str, str] = dict()
+    with open(path_to_json) as f:
+        raw_json = f.read()
+        deser_json = json.loads(raw_json)
+        print(type(deser_json))
+    for k in deser_json.keys():
+        if k == "name":
+            continue
+        hex = deser_json[k]
+        rgb = tuple(int(hex.lstrip("#")[i : i + 2], 16) for i in (0, 2, 4))
+        result.append(Color(k, rgb[0], rgb[1], rgb[2], hex))
+    print(result)
+    return result
+
+
+def get_list_of_json(dir: str) -> list[str]:
+    dir = os.path.abspath(dir)
+    print(dir)
+    ls = os.listdir(dir)
+    print(ls)
+    result: list[str] = list()
+    for f in ls:
+        f_path = os.path.abspath(os.path.join(dir, f))
+        print(f_path)
+        if (
+            os.path.exists(f_path)
+            and os.path.isfile(f_path)
+            and os.path.basename(f_path).endswith(".json")
+        ):
+            result.append(f_path)
+    return result
+
+
 def get_list_of_csv(dir: str) -> list[str]:
     dir = os.path.abspath(dir)
     print(dir)
@@ -113,12 +151,12 @@ def create_svg_of_palette(
             "<style>.small { font: bold "
             + str(TEXT_SIZE)
             + "px mono; fill: "
-            + palette[-2].hex
+            + palette[15].hex
             + ";}</style>"
         )
 
         svg_content = svg_content + svg_square(
-            svg_height, svg_width, 0, 0, palette[-1], 0
+            svg_height, svg_width, 0, 0, palette[0], 0
         )
 
         svg_content = (
@@ -154,18 +192,52 @@ def create_svg_of_palette(
     return svg_wrap(d_palette)
 
 
+def generate_html(svg_files: list[str]):
+    html_content = '<html><head><meta http-equiv="refresh" content="12"></head><body>'
+
+    for svg_f in svg_files:
+        html_content = (
+            html_content
+            + '<img src = "'
+            + svg_f
+            + '" alt="'
+            + os.path.basename(svg_f)
+            + '"/>'
+        )
+
+    html_content = html_content + "</body></html>"
+
+    with open("palettes.html", "w") as file:
+        _ = file.write(html_content)
+
+
 def main():
     list_csv = get_list_of_csv(PALETTE_DIR)
+    list_json = get_list_of_json(PALETTE_DIR)
     print(list_csv)
+    print(list_json)
     palettes_list: list[tuple[str, list[Color]]] = list()
+
     for f_csv in list_csv:
         palette_from_csv = parse_color_from_csv(f_csv)
         palettes_list.append((f_csv, palette_from_csv))
+    for f_json in list_json:
+        palette_from_json = parse_color_from_json(f_json)
+        palettes_list.append((f_json, palette_from_json))
     print(palettes_list)
+
+    svg_files: list[str] = []
     for p in palettes_list:
         svg_to_write = create_svg_of_palette(p[1])
-        with open(p[0].replace(".csv", ".svg"), "w") as file:
+        if p[0].endswith(".csv"):
+            svg_path = p[0].replace(".csv", ".svg")
+        else:
+            svg_path = p[0].replace(".json", ".svg")
+        with open(svg_path, "w") as file:
             _ = file.write(svg_to_write)
+            svg_files.append(svg_path)
+
+    generate_html(svg_files)
 
 
 if __name__ == "__main__":
