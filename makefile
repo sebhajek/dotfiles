@@ -4,12 +4,18 @@ FEDORA_VER ?= 40
 RHEL_VER ?= $(shell rpm -E %rhel)
 RHEL_VER ?= 9 
 
+
 INSTALL_SCRIPT_DIR ?= ./new-scripts
 
-all: neovim fastfetch
+
+all: zsh neovim fastfetch
+
 
 neovim:
 	sudo dnf install -y neovim
 
 fastfetch:
 	sudo dnf install -y fastfetch
+
+zsh:
+	sudo dnf install -y zsh
