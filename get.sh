@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 if cat /etc/*-release | grep -iq "Rocky"; then
-	echo "Rocky Linux detected"
+	echo "Rocky detected"
 	sudo dnf config-manager --set-enabled crb
-	sudo dnf config-manager --set-enabled epel-release
+	sudo dnf install -y epel-release
 	sudo dnf config-manager --set-enabled plus
-	sudo dnf config-manager --set-enabled devel
 elif cat /etc/*-release | grep -iq "Fedora"; then
 	echo "Fedora detected"
 else
