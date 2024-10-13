@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install git cmake gcc g++ make
+sudo dnf -y install git cmake gcc g++ make
 
 mkdir -p ~/.build_sources
 cd ~/.build_sources
