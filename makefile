@@ -1,13 +1,15 @@
 SHELL := /bin/bash
 FEDORA_VER ?= $(shell rpm -E %fedora)
 FEDORA_VER ?= 40 
+RHEL_VER ?= $(shell rpm -E %rhel)
+RHEL_VER ?= 9 
 
 INSTALL_SCRIPT_DIR ?= ./new-scripts
 
 all: neovim fastfetch
 
 neovim:
-	bash $(INSTALL_SCRIPT_DIR)/neovim.sh
+	sudo dnf install -y neovim
 
 fastfetch:
-	bash $(INSTALL_SCRIPT_DIR)/fastfetch.sh
+	sudo dnf install -y fastfetch
