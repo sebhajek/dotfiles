@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+if cat /etc/*-release | grep -iq "Rocky"; then
+	echo "Rocky Linux detected"
+	dnf config-manager --set-enabled crb
+	dnf config-manager --set-enabled epel-release
+	dnf config-manager --set-enabled plus
+	dnf config-manager --set-enabled devel
+elif cat /etc/*-release | grep -iq "Fedora"; then
+	echo "Fedora detected"
+else
+	echo "Unsupported OS"
+	exit 1
+fi
+
 sudo dnf clean -y all
 sudo dnf upgrade -y
 
