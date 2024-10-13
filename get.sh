@@ -3,7 +3,7 @@
 sudo dnf clean -y all
 sudo dnf upgrade -y
 
-sudo dnf install -y curl bash make
+sudo dnf install -y curl bash make git
 
 mkdir -p ~/.dotfiles
 
