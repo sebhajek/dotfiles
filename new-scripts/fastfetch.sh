@@ -11,7 +11,7 @@ if [ -d "./fastfetch/.git" ]; then
 	git pull
 else
 	echo "Cloning the fastfetch repository..."
-	git clone https://github.com/fastfetch-cli/fastfetch.git
+	git clone --depth 1 https://github.com/fastfetch-cli/fastfetch.git
 	cd ./fastfetch
 fi
 

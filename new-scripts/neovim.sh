@@ -10,8 +10,8 @@ if [ -d "./neovim/.git" ]; then
 	cd ./neovim
 	git pull
 else
-	echo "Cloning the fastfetch repository..."
-	git clone https://github.com/neovim/neovim.git
+	echo "Cloning the neovim repository..."
+	git clone --depth 1 https://github.com/neovim/neovim.git
 	cd ./neovim
 fi
 
