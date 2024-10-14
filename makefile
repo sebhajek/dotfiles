@@ -12,8 +12,7 @@ all: zsh bash neovim fastfetch js
 
 
 js: zsh
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-	nvm install --lts
+	bash ./languages/js.sh
 
 neovim: js
 	bash ./nvim/install.sh
