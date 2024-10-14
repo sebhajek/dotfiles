@@ -10,11 +10,13 @@ INSTALL_SCRIPT_DIR ?= ./new-scripts
 
 all: zsh bash neovim fastfetch js
 
+c:
+	bash ./languages/c.sh
 
 js: zsh
 	bash ./languages/js.sh
 
-neovim: js
+neovim: c js
 	bash ./nvim/install.sh
 
 fastfetch:
