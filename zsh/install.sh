@@ -4,7 +4,7 @@ sudo dnf install -y zsh
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
 	echo "OMZ already installed..."
-	zsh -c "omz update"
+	zsh -c "$HOME/.oh-my-zsh/tools/upgrade.sh"
 else
 	echo "Installing OMZ..."
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
