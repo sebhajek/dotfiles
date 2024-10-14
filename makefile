@@ -8,10 +8,14 @@ RHEL_VER ?= 9
 INSTALL_SCRIPT_DIR ?= ./new-scripts
 
 
-all: zsh neovim fastfetch
+all: zsh neovim fastfetch js
 
 
-neovim:
+js: zsh
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+	nvm install --lts
+
+neovim: js
 	bash ./nvim/install.sh
 
 fastfetch:
