@@ -11,3 +11,4 @@ else
 fi
 
 sudo usermod -s /bin/zsh $USER
+cp -fu ~/.dotfiles/zsh/.zshrc ~/
