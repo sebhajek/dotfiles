@@ -27,7 +27,7 @@ if [ -d "~/.dotfiles/.git" ]; then
 	cd ~/.dotfiles
 	git fetch
 	git checkout python-rewrite
-	git pull origin python-rewrite
+	git pull
 else
 	echo "Cloning the repository..."
 	git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git ~/.dotfiles
