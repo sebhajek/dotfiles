@@ -22,16 +22,16 @@ sudo dnf install -y curl bash make git
 
 mkdir -p ~/.dotfiles
 
-if [ -d "~/.dotfiles/.git" ]; then
+if [ -d "$HOME/.dotfiles/.git" ]; then
 	echo "Repository already exists. Pulling latest changes..."
-	cd ~/.dotfiles
+	cd "$HOME/.dotfiles"
 	git fetch
 	git checkout python-rewrite
 	git pull
 else
 	echo "Cloning the repository..."
-	git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git ~/.dotfiles
-	cd ~/.dotfiles
+	git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git "$HOME/.dotfiles"
+	cd "$HOME/.dotfiles"
 fi
 
 make all

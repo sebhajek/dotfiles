@@ -2,7 +2,7 @@
 
 sudo dnf install -y zsh
 
-if [ -d "~/.oh-my-zsh" ]; then
+if [ -d "$HOME/.oh-my-zsh" ]; then
 	echo "OMZ already installed..."
 	zsh -c "omz update"
 else
