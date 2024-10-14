@@ -9,3 +9,5 @@ else
 	echo "Installing OMZ..."
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+sudo chsh -s /bin/zsh $USER
