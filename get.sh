@@ -34,4 +34,4 @@ else
 	cd "$HOME/.dotfiles"
 fi
 
-make all
+make all -B
