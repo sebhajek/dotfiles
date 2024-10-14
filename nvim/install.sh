@@ -8,3 +8,5 @@ sudo dnf install -y tar libtree-sitter libtree-sitter-devel
 
 cp -ru ./nvim/* ~/.config/nvim/
 rm ~/.config/nvim/install.sh
+
+npm install -g tree-sitter-cli
