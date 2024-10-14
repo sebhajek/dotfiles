@@ -4,6 +4,6 @@ sudo dnf install -y neovim luajit
 
 mkdir -p ~/.config/nvim/
 
-sudo dnf install -y npm tar
+sudo dnf install -y npm tar libtree-sitter libtree-sitter-devel
 cp -ru ./nvim/* ~/.config/nvim/
 rm ~/.config/nvim/install.sh
