@@ -8,7 +8,7 @@ RHEL_VER ?= 9
 INSTALL_SCRIPT_DIR ?= ./new-scripts
 
 
-all: zsh neovim fastfetch js
+all: zsh bash neovim fastfetch js
 
 
 js: zsh
@@ -21,5 +21,10 @@ neovim: js
 fastfetch:
 	sudo dnf install -y fastfetch
 
-zsh:
+zsh: bash
 	bash ./zsh/install.sh
+
+bash:
+	touch ~/.profile
+	touch ~/.bashrc
+
