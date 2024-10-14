@@ -12,7 +12,7 @@ all: zsh neovim fastfetch
 
 
 neovim:
-	bash ./neovim/install.sh
+	bash ./nvim/install.sh
 
 fastfetch:
 	sudo dnf install -y fastfetch
