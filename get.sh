@@ -4,22 +4,6 @@
 # sudo apt-get install curl bash; curl -L https://raw.githubusercontent.com/sebhajek/dotfiles/main/get.sh | bash
 #
 
-pull-the-main-repo() {
-	mkdir -p ~/.dotfiles
-
-	if [ -d "$HOME/.dotfiles/.git" ]; then
-		echo "Repository already exists. Pulling latest changes..."
-		cd "$HOME/.dotfiles"
-		git fetch
-		git checkout python-rewrite
-		git pull
-	else
-		echo "Cloning the repository..."
-		git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git "$HOME/.dotfiles"
-		cd "$HOME/.dotfiles"
-	fi
-}
-
 if cat /etc/*-release | grep -iq "Rocky"; then
 	echo "Rocky detected"
 
@@ -34,7 +18,8 @@ if cat /etc/*-release | grep -iq "Rocky"; then
 
 	sudo dnf install -y curl bash make git
 
-	pull-the-main-repo
+	DISTRO="R"
+
 elif cat /etc/*-release | grep -iq "Fedora"; then
 	echo "Fedora detected"
 
@@ -46,10 +31,13 @@ elif cat /etc/*-release | grep -iq "Fedora"; then
 
 	sudo dnf install -y curl bash make git
 
-	pull-the-main-repo
+	DISTRO="F"
+
 elif cat /etc/*-release | grep -iq "Debian"; then
 	echo "Debian detected"
+
 	# Upon first login as root and run:
+	#
 	# su -
 	# apt-get install sudo
 	# usermod -aG sudo <username>
@@ -59,24 +47,27 @@ elif cat /etc/*-release | grep -iq "Debian"; then
 
 	sudo apt-get install curl bash make git
 
-	pull-the-main-repo
+	DISTRO="D"
+
 else
 	echo "Unsupported OS"
 	exit 1
 fi
 
-pull-the-main-repo() {
-	mkdir -p ~/.dotfiles
+export DISTRO=$DISTRO
 
-	if [ -d "$HOME/.dotfiles/.git" ]; then
-		echo "Repository already exists. Pulling latest changes..."
-		cd "$HOME/.dotfiles"
-		git fetch
-		git checkout python-rewrite
-		git pull
-	else
-		echo "Cloning the repository..."
-		git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git "$HOME/.dotfiles"
-		cd "$HOME/.dotfiles"
-	fi
-}
+mkdir -p ~/.dotfiles
+
+if [ -d "$HOME/.dotfiles/.git" ]; then
+	echo "Repository already exists. Pulling latest changes..."
+	cd "$HOME/.dotfiles"
+	git fetch
+	git checkout python-rewrite
+	git pull
+else
+	echo "Cloning the repository..."
+	git clone --branch python-rewrite https://github.com/sebhajek/dotfiles.git "$HOME/.dotfiles"
+	cd "$HOME/.dotfiles"
+fi
+
+bash ./new-scripts/codecs.sh
