@@ -34,6 +34,7 @@ elif cat /etc/*-release | grep -iq "Fedora"; then
 	DISTRO="F"
 
 elif cat /etc/*-release | grep -iq "Debian"; then
+	export DEBIAN_FRONTEND=noninteractive
 	echo "Debian detected"
 
 	# Upon first login as root and run:
@@ -42,10 +43,10 @@ elif cat /etc/*-release | grep -iq "Debian"; then
 	# apt-get install sudo
 	# usermod -aG sudo <username>
 
-	sudo apt-get clean
-	sudo apt-get update
+	sudo apt-get -yq clean
+	sudo apt-get -yq update
 
-	sudo apt-get install curl bash make git
+	sudo apt-get -yq install curl bash make git
 
 	DISTRO="D"
 
